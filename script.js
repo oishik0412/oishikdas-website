@@ -1,88 +1,201 @@
-document.addEventListener("DOMContentLoaded", () => {
+/* =========================================================
+   OISHIK DAS
+   WEBSITE INTERACTIONS
+========================================================= */
 
-  /* =======================================================
-     MOBILE NAVIGATION
-  ======================================================= */
 
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
 
-  if (menuToggle && navLinks) {
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
 
-    menuToggle.addEventListener("click", () => {
+if (menuToggle && navLinks) {
 
-      const isOpen = navLinks.classList.toggle("open");
+  menuToggle.addEventListener("click", () => {
+
+    const isOpen = navLinks.classList.toggle("open");
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
+
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen
+        ? "Close navigation"
+        : "Open navigation"
+    );
+
+  });
+
+
+  navLinks.querySelectorAll("a").forEach((link) => {
+
+    link.addEventListener("click", () => {
+
+      navLinks.classList.remove("open");
 
       menuToggle.setAttribute(
         "aria-expanded",
-        isOpen ? "true" : "false"
+        "false"
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        "Open navigation"
       );
 
     });
 
-    navLinks.querySelectorAll("a").forEach(link => {
+  });
 
-      link.addEventListener("click", () => {
-
-        navLinks.classList.remove("open");
-
-        menuToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-      });
-
-    });
-
-  }
+}
 
 
-  /* =======================================================
-     HERO PHOTO SLIDESHOW
-     11 PHOTOS
-  ======================================================= */
+/* =========================================================
+   HOME IMAGE SLIDESHOW
+========================================================= */
 
-  const slides = document.querySelectorAll(".hero-slide");
-  const currentCounter = document.getElementById("slide-current");
+const heroImages = document.querySelectorAll(".hero-image");
+const heroCurrent = document.querySelector(".hero-current");
 
-  let currentSlide = 0;
+let currentImage = 0;
 
-  if (slides.length > 1) {
+function showHeroImage(index) {
 
-    setInterval(() => {
+  heroImages.forEach((image, imageIndex) => {
 
-      slides[currentSlide].classList.remove("active");
+    image.classList.toggle(
+      "image-active",
+      imageIndex === index
+    );
 
-      currentSlide =
-        (currentSlide + 1) % slides.length;
+  });
 
-      slides[currentSlide].classList.add("active");
+  if (heroCurrent) {
 
-      if (currentCounter) {
-
-        currentCounter.textContent =
-          String(currentSlide + 1).padStart(2, "0");
-
-      }
-
-    }, 5000);
+    heroCurrent.textContent =
+      String(index + 1).padStart(2, "0");
 
   }
 
+}
 
-  /* =======================================================
-     SCROLL REVEAL
-  ======================================================= */
 
-  const revealElements = document.querySelectorAll(
-    ".section, .journey-point, .creative-links a, .gallery-grid img"
-  );
+if (heroImages.length > 1) {
 
-  const observer = new IntersectionObserver(
-    entries => {
+  showHeroImage(0);
 
-      entries.forEach(entry => {
+  setInterval(() => {
+
+    currentImage =
+      (currentImage + 1) % heroImages.length;
+
+    showHeroImage(currentImage);
+
+  }, 5000);
+
+}
+
+
+/* =========================================================
+   PRELOAD ALL HOME IMAGES
+========================================================= */
+
+const imageSources = [
+
+  "images/20250924_133130~2.jpg",
+  "images/20251014_180851.jpg",
+  "images/20260125_193828.jpg",
+  "images/20260125_201909.jpg",
+  "images/20260206_160230.jpg",
+  "images/20260319_170756.jpg",
+  "images/20260319_172505.jpg",
+  "images/20260320_001553.jpg",
+  "images/20260320_002604.jpg",
+  "images/20260405_014526.jpg",
+  "images/IMG-20251227-WA0002.jpg"
+
+];
+
+imageSources.forEach((source) => {
+
+  const image = new Image();
+
+  image.src = source;
+
+});
+
+
+/* =========================================================
+   KEYBOARD CONTROL FOR HOME SLIDESHOW
+========================================================= */
+
+document.addEventListener("keydown", (event) => {
+
+  if (!heroImages.length) {
+    return;
+  }
+
+  if (event.key === "ArrowRight") {
+
+    currentImage =
+      (currentImage + 1) % heroImages.length;
+
+    showHeroImage(currentImage);
+
+  }
+
+  if (event.key === "ArrowLeft") {
+
+    currentImage =
+      (currentImage - 1 + heroImages.length)
+      % heroImages.length;
+
+    showHeroImage(currentImage);
+
+  }
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements = document.querySelectorAll(
+  ".section-label, " +
+  ".intro-content, " +
+  ".journey-introduction, " +
+  ".journey-chapter, " +
+  ".research-introduction, " +
+  ".research-statement, " +
+  ".creative-introduction, " +
+  ".creative-item, " +
+  ".press-content, " +
+  ".gallery-introduction, " +
+  ".gallery-image, " +
+  ".social-heading, " +
+  ".social-grid, " +
+  ".contact-content"
+);
+
+
+revealElements.forEach((element) => {
+
+  element.classList.add("reveal");
+
+});
+
+
+const revealObserver =
+  new IntersectionObserver(
+    (entries, observer) => {
+
+      entries.forEach((entry) => {
 
         if (entry.isIntersecting) {
 
@@ -96,46 +209,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
     },
     {
-      threshold: 0.08
+      threshold: 0.08,
+      rootMargin: "0px 0px -40px 0px"
     }
   );
 
-  revealElements.forEach(element => {
-    element.classList.add("reveal");
-    observer.observe(element);
-  });
+
+revealElements.forEach((element) => {
+
+  revealObserver.observe(element);
+
+});
 
 
-  /* =======================================================
-     ACTIVE NAVIGATION
-  ======================================================= */
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
 
-  const sections = document.querySelectorAll(
-    "main section[id]"
-  );
+const sections = document.querySelectorAll(
+  "main section[id]"
+);
 
-  const navigationLinks =
-    document.querySelectorAll(".nav-links a");
+const navigationLinks =
+  document.querySelectorAll(".nav-links a");
 
-  const sectionObserver = new IntersectionObserver(
-    entries => {
 
-      entries.forEach(entry => {
+const navigationObserver =
+  new IntersectionObserver(
+    (entries) => {
+
+      entries.forEach((entry) => {
 
         if (!entry.isIntersecting) {
           return;
         }
 
-        navigationLinks.forEach(link => {
+        const currentSection =
+          entry.target.getAttribute("id");
 
-          link.classList.remove("active");
+        navigationLinks.forEach((link) => {
 
-          if (
-            link.getAttribute("href") ===
-            `#${entry.target.id}`
-          ) {
-            link.classList.add("active");
-          }
+          const linkTarget =
+            link.getAttribute("href");
+
+          link.classList.toggle(
+            "active",
+            linkTarget === `#${currentSection}`
+          );
 
         });
 
@@ -143,12 +263,100 @@ document.addEventListener("DOMContentLoaded", () => {
 
     },
     {
-      threshold: 0.45
+      threshold: 0.25
     }
   );
 
-  sections.forEach(section => {
-    sectionObserver.observe(section);
+
+sections.forEach((section) => {
+
+  navigationObserver.observe(section);
+
+});
+
+
+/* =========================================================
+   SMOOTH ANCHOR POSITIONING
+========================================================= */
+
+document.querySelectorAll(
+  'a[href^="#"]'
+).forEach((link) => {
+
+  link.addEventListener("click", (event) => {
+
+    const targetId =
+      link.getAttribute("href");
+
+    if (
+      !targetId ||
+      targetId === "#"
+    ) {
+      return;
+    }
+
+    const target =
+      document.querySelector(targetId);
+
+    if (!target) {
+      return;
+    }
+
+    event.preventDefault();
+
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
   });
 
 });
+
+
+/* =========================================================
+   GALLERY IMAGE LOAD EFFECT
+========================================================= */
+
+const galleryImages =
+  document.querySelectorAll(".gallery-image img");
+
+
+galleryImages.forEach((image) => {
+
+  if (image.complete) {
+
+    image.classList.add("loaded");
+
+  } else {
+
+    image.addEventListener(
+      "load",
+      () => {
+
+        image.classList.add("loaded");
+
+      },
+      {
+        once: true
+      }
+    );
+
+  }
+
+});
+
+
+/* =========================================================
+   FOOTER YEAR
+========================================================= */
+
+const footerYear =
+  document.querySelector(".footer-bottom span");
+
+if (footerYear) {
+
+  footerYear.textContent =
+    `© ${new Date().getFullYear()} Oishik Das`;
+
+}
