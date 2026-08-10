@@ -1,362 +1,380 @@
+```javascript
 /* =========================================================
-   OISHIK DAS
-   WEBSITE INTERACTIONS
-========================================================= */
+   OISHIK DAS — WEBSITE INTERACTIONS
+   ========================================================= */
 
+document.addEventListener("DOMContentLoaded", () => {
 
-/* =========================================================
-   MOBILE NAVIGATION
-========================================================= */
+  /* -------------------------------------------------------
+     MOBILE NAVIGATION
+     ------------------------------------------------------- */
 
-const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector(".nav-links");
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
 
-if (menuToggle && navLinks) {
+  if (menuToggle && navLinks) {
 
-  menuToggle.addEventListener("click", () => {
+    menuToggle.addEventListener("click", () => {
 
-    const isOpen = navLinks.classList.toggle("open");
+      const isOpen = navLinks.classList.toggle("open");
 
-    menuToggle.setAttribute(
-      "aria-expanded",
-      String(isOpen)
-    );
-
-    menuToggle.setAttribute(
-      "aria-label",
-      isOpen
-        ? "Close navigation"
-        : "Open navigation"
-    );
-
-  });
-
-
-  navLinks.querySelectorAll("a").forEach((link) => {
-
-    link.addEventListener("click", () => {
-
-      navLinks.classList.remove("open");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        "false"
-      );
+      menuToggle.setAttribute("aria-expanded", isOpen);
 
       menuToggle.setAttribute(
         "aria-label",
-        "Open navigation"
+        isOpen ? "Close navigation" : "Open navigation"
       );
 
     });
 
-  });
+    navLinks.querySelectorAll("a").forEach(link => {
 
-}
+      link.addEventListener("click", () => {
 
+        navLinks.classList.remove("open");
 
-/* =========================================================
-   HOME IMAGE SLIDESHOW
-========================================================= */
+        menuToggle.setAttribute("aria-expanded", "false");
 
-const heroImages = document.querySelectorAll(".hero-image");
-const heroCurrent = document.querySelector(".hero-current");
-
-let currentImage = 0;
-
-function showHeroImage(index) {
-
-  heroImages.forEach((image, imageIndex) => {
-
-    image.classList.toggle(
-      "image-active",
-      imageIndex === index
-    );
-
-  });
-
-  if (heroCurrent) {
-
-    heroCurrent.textContent =
-      String(index + 1).padStart(2, "0");
-
-  }
-
-}
-
-
-if (heroImages.length > 1) {
-
-  showHeroImage(0);
-
-  setInterval(() => {
-
-    currentImage =
-      (currentImage + 1) % heroImages.length;
-
-    showHeroImage(currentImage);
-
-  }, 5000);
-
-}
-
-
-/* =========================================================
-   PRELOAD ALL HOME IMAGES
-========================================================= */
-
-const imageSources = [
-
-  "images/20250924_133130~2.jpg",
-  "images/20251014_180851.jpg",
-  "images/20260125_193828.jpg",
-  "images/20260125_201909.jpg",
-  "images/20260206_160230.jpg",
-  "images/20260319_170756.jpg",
-  "images/20260319_172505.jpg",
-  "images/20260320_001553.jpg",
-  "images/20260320_002604.jpg",
-  "images/20260405_014526.jpg",
-  "images/IMG-20251227-WA0002.jpg"
-
-];
-
-imageSources.forEach((source) => {
-
-  const image = new Image();
-
-  image.src = source;
-
-});
-
-
-/* =========================================================
-   KEYBOARD CONTROL FOR HOME SLIDESHOW
-========================================================= */
-
-document.addEventListener("keydown", (event) => {
-
-  if (!heroImages.length) {
-    return;
-  }
-
-  if (event.key === "ArrowRight") {
-
-    currentImage =
-      (currentImage + 1) % heroImages.length;
-
-    showHeroImage(currentImage);
-
-  }
-
-  if (event.key === "ArrowLeft") {
-
-    currentImage =
-      (currentImage - 1 + heroImages.length)
-      % heroImages.length;
-
-    showHeroImage(currentImage);
-
-  }
-
-});
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-const revealElements = document.querySelectorAll(
-  ".section-label, " +
-  ".intro-content, " +
-  ".journey-introduction, " +
-  ".journey-chapter, " +
-  ".research-introduction, " +
-  ".research-statement, " +
-  ".creative-introduction, " +
-  ".creative-item, " +
-  ".press-content, " +
-  ".gallery-introduction, " +
-  ".gallery-image, " +
-  ".social-heading, " +
-  ".social-grid, " +
-  ".contact-content"
-);
-
-
-revealElements.forEach((element) => {
-
-  element.classList.add("reveal");
-
-});
-
-
-const revealObserver =
-  new IntersectionObserver(
-    (entries, observer) => {
-
-      entries.forEach((entry) => {
-
-        if (entry.isIntersecting) {
-
-          entry.target.classList.add("visible");
-
-          observer.unobserve(entry.target);
-
-        }
+        menuToggle.setAttribute(
+          "aria-label",
+          "Open navigation"
+        );
 
       });
 
-    },
-    {
-      threshold: 0.08,
-      rootMargin: "0px 0px -40px 0px"
-    }
+    });
+
+  }
+
+
+  /* -------------------------------------------------------
+     SCROLL REVEAL
+     ------------------------------------------------------- */
+
+  const revealElements = document.querySelectorAll(
+    ".section, .direction-card, .journey-point, .feature-layout, .press-preview, .social-grid, .creative-link"
   );
 
+  if ("IntersectionObserver" in window) {
 
-revealElements.forEach((element) => {
+    const revealObserver = new IntersectionObserver(
+      entries => {
 
-  revealObserver.observe(element);
+        entries.forEach(entry => {
 
-});
+          if (entry.isIntersecting) {
 
+            entry.target.classList.add("is-visible");
 
-/* =========================================================
-   ACTIVE NAVIGATION
-========================================================= */
+            revealObserver.unobserve(entry.target);
 
-const sections = document.querySelectorAll(
-  "main section[id]"
-);
-
-const navigationLinks =
-  document.querySelectorAll(".nav-links a");
-
-
-const navigationObserver =
-  new IntersectionObserver(
-    (entries) => {
-
-      entries.forEach((entry) => {
-
-        if (!entry.isIntersecting) {
-          return;
-        }
-
-        const currentSection =
-          entry.target.getAttribute("id");
-
-        navigationLinks.forEach((link) => {
-
-          const linkTarget =
-            link.getAttribute("href");
-
-          link.classList.toggle(
-            "active",
-            linkTarget === `#${currentSection}`
-          );
+          }
 
         });
 
-      });
+      },
+      {
+        threshold: 0.12
+      }
+    );
 
-    },
-    {
-      threshold: 0.25
-    }
-  );
+    revealElements.forEach(element => {
 
+      element.classList.add("reveal");
 
-sections.forEach((section) => {
+      revealObserver.observe(element);
 
-  navigationObserver.observe(section);
-
-});
-
-
-/* =========================================================
-   SMOOTH ANCHOR POSITIONING
-========================================================= */
-
-document.querySelectorAll(
-  'a[href^="#"]'
-).forEach((link) => {
-
-  link.addEventListener("click", (event) => {
-
-    const targetId =
-      link.getAttribute("href");
-
-    if (
-      !targetId ||
-      targetId === "#"
-    ) {
-      return;
-    }
-
-    const target =
-      document.querySelector(targetId);
-
-    if (!target) {
-      return;
-    }
-
-    event.preventDefault();
-
-    target.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
     });
-
-  });
-
-});
-
-
-/* =========================================================
-   GALLERY IMAGE LOAD EFFECT
-========================================================= */
-
-const galleryImages =
-  document.querySelectorAll(".gallery-image img");
-
-
-galleryImages.forEach((image) => {
-
-  if (image.complete) {
-
-    image.classList.add("loaded");
 
   } else {
 
-    image.addEventListener(
-      "load",
-      () => {
+    revealElements.forEach(element => {
 
-        image.classList.add("loaded");
+      element.classList.add("is-visible");
+
+    });
+
+  }
+
+
+  /* -------------------------------------------------------
+     ACTIVE NAVIGATION
+     ------------------------------------------------------- */
+
+  const sections = document.querySelectorAll("main section[id]");
+  const navigationLinks = document.querySelectorAll(".nav-links a");
+
+  if ("IntersectionObserver" in window) {
+
+    const sectionObserver = new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          const currentSection = entry.target.getAttribute("id");
+
+          navigationLinks.forEach(link => {
+
+            link.classList.remove("active");
+
+            const href = link.getAttribute("href");
+
+            if (href === `#${currentSection}`) {
+
+              link.classList.add("active");
+
+            }
+
+          });
+
+        });
 
       },
       {
-        once: true
+        rootMargin: "-35% 0px -55% 0px"
+      }
+    );
+
+    sections.forEach(section => {
+
+      sectionObserver.observe(section);
+
+    });
+
+  }
+
+
+  /* -------------------------------------------------------
+     HERO IMAGE ROTATION
+     ------------------------------------------------------- */
+
+  const heroImage = document.querySelector(".hero-image");
+
+  if (heroImage) {
+
+    const images = [
+      "images/20250924_133130~2.jpg",
+      "images/20251014_180851.jpg",
+      "images/20260125_193828.jpg",
+      "images/20260125_201909.jpg",
+      "images/20260206_160230.jpg",
+      "images/20260319_170756.jpg",
+      "images/20260319_172505.jpg",
+      "images/20260320_001553.jpg",
+      "images/20260320_002604.jpg",
+      "images/20260405_014526.jpg",
+      "images/IMG-20251227-WA0002.jpg"
+    ];
+
+    let currentImage = 0;
+
+    const changeImage = () => {
+
+      heroImage.classList.add("changing");
+
+      setTimeout(() => {
+
+        currentImage =
+          (currentImage + 1) % images.length;
+
+        heroImage.src = images[currentImage];
+
+        heroImage.onload = () => {
+
+          heroImage.classList.remove("changing");
+
+        };
+
+      }, 350);
+
+    };
+
+    setInterval(changeImage, 4500);
+
+  }
+
+
+  /* -------------------------------------------------------
+     GALLERY LIGHTBOX
+     ------------------------------------------------------- */
+
+  const galleryImages = document.querySelectorAll(
+    ".gallery-image"
+  );
+
+  const lightbox = document.querySelector(
+    ".lightbox"
+  );
+
+  const lightboxImage = document.querySelector(
+    ".lightbox img"
+  );
+
+  const lightboxClose = document.querySelector(
+    ".lightbox-close"
+  );
+
+  if (
+    galleryImages.length &&
+    lightbox &&
+    lightboxImage
+  ) {
+
+    galleryImages.forEach(image => {
+
+      image.addEventListener("click", () => {
+
+        lightboxImage.src = image.src;
+
+        lightboxImage.alt =
+          image.alt || "Oishik Das";
+
+        lightbox.classList.add("open");
+
+        document.body.classList.add(
+          "lightbox-open"
+        );
+
+      });
+
+    });
+
+
+    const closeLightbox = () => {
+
+      lightbox.classList.remove("open");
+
+      document.body.classList.remove(
+        "lightbox-open"
+      );
+
+    };
+
+
+    if (lightboxClose) {
+
+      lightboxClose.addEventListener(
+        "click",
+        closeLightbox
+      );
+
+    }
+
+
+    lightbox.addEventListener(
+      "click",
+      event => {
+
+        if (event.target === lightbox) {
+
+          closeLightbox();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape" &&
+          lightbox.classList.contains("open")
+        ) {
+
+          closeLightbox();
+
+        }
+
       }
     );
 
   }
 
+
+  /* -------------------------------------------------------
+     SMOOTH ANCHOR NAVIGATION
+     ------------------------------------------------------- */
+
+  document
+    .querySelectorAll('a[href^="#"]')
+    .forEach(anchor => {
+
+      anchor.addEventListener(
+        "click",
+        event => {
+
+          const targetId =
+            anchor.getAttribute("href");
+
+          if (
+            !targetId ||
+            targetId === "#"
+          ) {
+            return;
+          }
+
+          const target =
+            document.querySelector(targetId);
+
+          if (!target) {
+            return;
+          }
+
+          event.preventDefault();
+
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        }
+      );
+
+    });
+
+
+  /* -------------------------------------------------------
+     CURRENT YEAR
+     ------------------------------------------------------- */
+
+  const yearElement =
+    document.querySelector("[data-current-year]");
+
+  if (yearElement) {
+
+    yearElement.textContent =
+      new Date().getFullYear();
+
+  }
+
+
+  /* -------------------------------------------------------
+     IMAGE FALLBACK
+     ------------------------------------------------------- */
+
+  document
+    .querySelectorAll("img")
+    .forEach(image => {
+
+      image.addEventListener(
+        "error",
+        () => {
+
+          image.classList.add(
+            "image-error"
+          );
+
+        }
+      );
+
+    });
+
 });
-
-
-/* =========================================================
-   FOOTER YEAR
-========================================================= */
-
-const footerYear =
-  document.querySelector(".footer-bottom span");
-
-if (footerYear) {
-
-  footerYear.textContent =
-    `© ${new Date().getFullYear()} Oishik Das`;
-
-}
+```
