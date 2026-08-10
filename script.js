@@ -1,222 +1,146 @@
-document.addEventListener("DOMContentLoaded", () => {
-
 /* =========================================================
-MOBILE NAVIGATION
-========================================================= */
+   OISHIK DAS — WEBSITE INTERACTIONS
+   ========================================================= */
+
+
+/* MOBILE NAVIGATION */
 
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
+const navItems = document.querySelectorAll(".nav-links a");
 
 if (menuToggle && navLinks) {
 
-```
-menuToggle.addEventListener("click", () => {
+  menuToggle.addEventListener("click", () => {
 
-  const isOpen = navLinks.classList.toggle("open");
+    const isOpen = navLinks.classList.toggle("open");
 
-  menuToggle.setAttribute(
-    "aria-expanded",
-    isOpen ? "true" : "false"
-  );
-
-  menuToggle.setAttribute(
-    "aria-label",
-    isOpen ? "Close navigation" : "Open navigation"
-  );
-
-});
-
-
-/* Close menu after selecting a section */
-
-navLinks.querySelectorAll("a").forEach((link) => {
-
-  link.addEventListener("click", () => {
-
-    navLinks.classList.remove("open");
-
-    menuToggle.setAttribute(
-      "aria-expanded",
-      "false"
-    );
-
-    menuToggle.setAttribute(
-      "aria-label",
-      "Open navigation"
-    );
+    menuToggle.setAttribute("aria-expanded", isOpen);
+    document.body.classList.toggle("menu-open", isOpen);
 
   });
 
-});
-```
+  navItems.forEach((item) => {
 
-}
+    item.addEventListener("click", () => {
 
-/* =========================================================
-SCROLL REVEAL
-========================================================= */
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("menu-open");
 
-const revealElements = document.querySelectorAll(
-".direction-card, .feature-layout, .press-preview, .intro-content, .journey-line, .creative-heading, .social-grid"
-);
-
-revealElements.forEach((element) => {
-element.classList.add("reveal");
-});
-
-const revealObserver = new IntersectionObserver(
-(entries, observer) => {
-
-```
-  entries.forEach((entry) => {
-
-    if (entry.isIntersecting) {
-
-      entry.target.classList.add("visible");
-
-      observer.unobserve(entry.target);
-
-    }
-
-  });
-
-},
-{
-  threshold: 0.12,
-  rootMargin: "0px 0px -60px 0px"
-}
-```
-
-);
-
-revealElements.forEach((element) => {
-revealObserver.observe(element);
-});
-
-/* =========================================================
-CURRENT SECTION IN NAVIGATION
-========================================================= */
-
-const sections = document.querySelectorAll(
-"main section[id]"
-);
-
-const navigationLinks = document.querySelectorAll(
-".nav-links a"
-);
-
-const sectionObserver = new IntersectionObserver(
-(entries) => {
-
-```
-  entries.forEach((entry) => {
-
-    if (!entry.isIntersecting) {
-      return;
-    }
-
-    navigationLinks.forEach((link) => {
-      link.classList.remove("active");
     });
 
-
-    const activeLink = document.querySelector(
-      `.nav-links a[href="#${entry.target.id}"]`
-    );
-
-
-    if (activeLink) {
-      activeLink.classList.add("active");
-    }
-
   });
 
-},
-{
-  threshold: 0.35
 }
-```
 
+
+/* HERO IMAGE ROTATION */
+
+const heroImages = document.querySelectorAll(".hero-image");
+const heroCurrent = document.querySelector(".hero-current");
+
+let currentImage = 0;
+
+function changeHeroImage() {
+
+  heroImages[currentImage].classList.remove("active");
+
+  currentImage = (currentImage + 1) % heroImages.length;
+
+  heroImages[currentImage].classList.add("active");
+
+  if (heroCurrent) {
+    heroCurrent.textContent =
+      String(currentImage + 1).padStart(2, "0");
+  }
+
+}
+
+if (heroImages.length > 1) {
+
+  setInterval(changeHeroImage, 5000);
+
+}
+
+
+/* ACTIVE NAVIGATION */
+
+const sections = document.querySelectorAll("main section[id]");
+const navigationLinks = document.querySelectorAll(".nav-links a");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+
+    entries.forEach((entry) => {
+
+      if (entry.isIntersecting) {
+
+        navigationLinks.forEach((link) => {
+          link.classList.remove("active");
+        });
+
+        const activeLink = document.querySelector(
+          `.nav-links a[href="#${entry.target.id}"]`
+        );
+
+        if (activeLink) {
+          activeLink.classList.add("active");
+        }
+
+      }
+
+    });
+
+  },
+  {
+    threshold: 0.35
+  }
 );
 
 sections.forEach((section) => {
-sectionObserver.observe(section);
+  observer.observe(section);
 });
 
-/* =========================================================
-SMOOTH ANCHOR SCROLL
-========================================================= */
 
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
+/* IMAGE LOAD FADE */
 
-```
-link.addEventListener("click", (event) => {
+const galleryImages = document.querySelectorAll(".gallery-item img");
 
-  const targetId = link.getAttribute("href");
+galleryImages.forEach((image) => {
 
-  if (!targetId || targetId === "#") {
-    return;
-  }
-
-
-  const target = document.querySelector(targetId);
-
-  if (!target) {
-    return;
-  }
-
-
-  event.preventDefault();
-
-
-  target.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
+  image.addEventListener("load", () => {
+    image.classList.add("loaded");
   });
 
 });
-```
 
-});
 
-/* =========================================================
-FOOTER YEAR
-========================================================= */
+/* PREVENT BROKEN HASH SCROLL */
 
-const yearElement = document.querySelector(
-".footer-bottom span:first-child"
-);
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
 
-if (yearElement) {
+  link.addEventListener("click", (event) => {
 
-```
-yearElement.textContent =
-  `© ${new Date().getFullYear()} Oishik Das`;
-```
+    const targetId = link.getAttribute("href");
 
-}
+    if (!targetId || targetId === "#") {
+      return;
+    }
 
-/* =========================================================
-REDUCED MOTION ACCESSIBILITY
-========================================================= */
+    const target = document.querySelector(targetId);
 
-const prefersReducedMotion =
-window.matchMedia(
-"(prefers-reduced-motion: reduce)"
-).matches;
+    if (target) {
 
-if (prefersReducedMotion) {
+      event.preventDefault();
 
-```
-document.documentElement.style.scrollBehavior = "auto";
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
 
-document.querySelectorAll(".reveal").forEach((element) => {
+    }
 
-  element.classList.add("visible");
-
-});
-```
-
-}
+  });
 
 });
