@@ -1,95 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF 8">
+  <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Gallery | Oishik Das</title>
 
-  <meta name="description" content="Visual gallery of Oishik Das featuring travel, people, places and personal moments.">
+  <meta
+    name="description"
+    content="Visual archive of Oishik Das across places, journeys, people and moments."
+  >
+
   <meta name="author" content="Oishik Das">
   <meta name="robots" content="index, follow">
 
-  <link rel="canonical" href="https://official.oishikdas.workers.dev/gallery.html">
+  <link
+    rel="canonical"
+    href="https://official.oishikdas.workers.dev/gallery.html"
+  >
+
   <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://official.oishikdas.workers.dev/#oishik-das",
+    "name": "Oishik Das",
+    "url": "https://official.oishikdas.workers.dev/",
+    "sameAs": [
+      "https://www.linkedin.com/in/oishikdas/",
+      "https://www.instagram.com/oishik0412/",
+      "https://x.com/oishik0412",
+      "https://www.youtube.com/@oishik0412",
+      "https://medium.com/@oishikdas",
+      "https://www.quora.com/profile/Oishik-Das-4",
+      "https://www.facebook.com/oishik0412",
+      "https://www.imdb.com/name/nm18410928/",
+      "https://www.researchgate.net/profile/Oishik-Das",
+      "https://www.stage32.com/profile/1381120/about",
+      "https://www.themoviedb.org/person/6378803",
+      "https://www.wikidata.org/wiki/Q140778180"
+    ]
+  }
+  </script>
 </head>
 
 <body>
 
 <header class="site-header">
-  <nav class="navigation">
-    <a href="index.html" class="brand">HOME</a>
+  <nav class="navigation" aria-label="Primary navigation">
 
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
+    <a href="index.html" class="brand">OISHIK DAS</a>
+
+    <button
+      class="menu-toggle"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+    >
       <span></span>
       <span></span>
     </button>
 
-    <div class="nav-links">
+    <div class="nav-links" id="primary-navigation">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="journey.html">Journey</a>
       <a href="research.html">Research</a>
       <a href="creative.html">Creative</a>
       <a href="press.html">Press</a>
-      <a href="gallery.html">Gallery</a>
+      <a href="gallery.html" class="active">Gallery</a>
       <a href="social.html">Social</a>
       <a href="contact.html">Contact</a>
     </div>
+
   </nav>
 </header>
 
 <main>
 
-<section class="inner-hero gallery-hero page-reveal">
+  <section class="inner-hero page-reveal">
 
-  <p class="eyebrow">Gallery</p>
+    <p class="eyebrow">Gallery</p>
 
-  <h1>
-    Moments<br>
-    in motion.
-  </h1>
+    <h1>
+      Places.<br>
+      People.<br>
+      Moments.
+    </h1>
 
-  <p class="inner-introduction">
-    A visual archive of places, journeys, people and moments.
-  </p>
-
-</section>
-
-
-<section class="section gallery-introduction page-reveal">
-
-  <div>
-    <p class="large-copy">
-      Eleven photographs.
-      One evolving archive.
-    </p>
-  </div>
-
-  <div>
-    <p>
-      The gallery will continue to grow as new places are explored,
-      new stories are captured and new moments become part of the journey.
+    <p class="inner-introduction">
+      A visual archive of the experiences that continue to shape
+      how I see the world.
     </p>
 
-    <a
-      href="https://www.instagram.com/oishik0412/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="text-link"
-    >
-      Follow the visual journey on Instagram →
-    </a>
-  </div>
-
-</section>
+  </section>
 
 
-<section class="gallery-grid section page-reveal" id="galleryGrid"></section>
+  <section class="section gallery-introduction page-reveal">
+
+    <div>
+      <p class="eyebrow">
+        Visual archive
+      </p>
+    </div>
+
+    <div>
+
+      <p class="large-copy">
+        Some things are easier to remember visually.
+      </p>
+
+      <p>
+        The gallery brings together photographs from journeys,
+        everyday moments and creative exploration.
+      </p>
+
+      <a
+        href="https://www.instagram.com/oishik0412/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-link"
+      >
+        Follow the visual journey on Instagram →
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <section class="section gallery-grid" id="galleryGrid">
+  </section>
 
 </main>
 
+
 <footer class="site-footer">
+
   <div class="footer-top">
 
     <div>
@@ -113,8 +171,9 @@
 
   <div class="footer-bottom">
     <span>© 2026 Oishik Das</span>
-    <span>All rights reserved.</span>
+    <span>One identity. Many dimensions.</span>
   </div>
+
 </footer>
 
 <script src="script.js"></script>
