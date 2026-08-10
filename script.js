@@ -1,380 +1,177 @@
-```javascript
-/* =========================================================
-   OISHIK DAS — WEBSITE INTERACTIONS
-   ========================================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
-
-  /* -------------------------------------------------------
-     MOBILE NAVIGATION
-     ------------------------------------------------------- */
 
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
 
   if (menuToggle && navLinks) {
-
     menuToggle.addEventListener("click", () => {
 
       const isOpen = navLinks.classList.toggle("open");
 
-      menuToggle.setAttribute("aria-expanded", isOpen);
-
       menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation" : "Open navigation"
+        "aria-expanded",
+        isOpen ? "true" : "false"
       );
 
     });
+  }
 
-    navLinks.querySelectorAll("a").forEach(link => {
 
-      link.addEventListener("click", () => {
+  const images = [
+    "20250924_133130~2.jpg",
+    "20251014_180851.jpg",
+    "20260125_193828.jpg",
+    "20260125_201909.jpg",
+    "20260206_160230.jpg",
+    "20260319_170756.jpg",
+    "20260319_172505.jpg",
+    "20260320_001553.jpg",
+    "20260320_002604.jpg",
+    "20260405_014526.jpg",
+    "IMG-20251227-WA0002.jpg"
+  ];
 
-        navLinks.classList.remove("open");
 
-        menuToggle.setAttribute("aria-expanded", "false");
+  const heroImage = document.getElementById("heroImage");
+  const heroCounter = document.getElementById("heroCounter");
 
-        menuToggle.setAttribute(
-          "aria-label",
-          "Open navigation"
-        );
 
-      });
+  if (heroImage) {
+
+    let currentImage = 0;
+
+    const changeHeroImage = () => {
+
+      currentImage =
+        (currentImage + 1) % images.length;
+
+      heroImage.classList.add("image-changing");
+
+      setTimeout(() => {
+
+        heroImage.src =
+          "images/" + images[currentImage];
+
+        if (heroCounter) {
+          heroCounter.textContent =
+            String(currentImage + 1).padStart(2, "0") +
+            " / " +
+            String(images.length).padStart(2, "0");
+        }
+
+        heroImage.onload = () => {
+          heroImage.classList.remove("image-changing");
+        };
+
+      }, 350);
+    };
+
+    setInterval(changeHeroImage, 4000);
+  }
+
+
+  const galleryGrid =
+    document.getElementById("galleryGrid");
+
+
+  if (galleryGrid) {
+
+    images.forEach((image, index) => {
+
+      const figure =
+        document.createElement("figure");
+
+      figure.className =
+        "gallery-item page-reveal";
+
+      const imageElement =
+        document.createElement("img");
+
+      imageElement.src =
+        "images/" + image;
+
+      imageElement.alt =
+        "Oishik Das photograph " +
+        String(index + 1);
+
+      imageElement.loading =
+        index === 0 ? "eager" : "lazy";
+
+      const caption =
+        document.createElement("figcaption");
+
+      caption.textContent =
+        String(index + 1).padStart(2, "0");
+
+      figure.appendChild(imageElement);
+      figure.appendChild(caption);
+
+      galleryGrid.appendChild(figure);
 
     });
 
   }
 
 
-  /* -------------------------------------------------------
-     SCROLL REVEAL
-     ------------------------------------------------------- */
+  const revealElements =
+    document.querySelectorAll(".page-reveal");
 
-  const revealElements = document.querySelectorAll(
-    ".section, .direction-card, .journey-point, .feature-layout, .press-preview, .social-grid, .creative-link"
-  );
 
   if ("IntersectionObserver" in window) {
 
-    const revealObserver = new IntersectionObserver(
-      entries => {
+    const observer =
+      new IntersectionObserver(
+        (entries, observerInstance) => {
 
-        entries.forEach(entry => {
+          entries.forEach(entry => {
 
-          if (entry.isIntersecting) {
+            if (entry.isIntersecting) {
 
-            entry.target.classList.add("is-visible");
+              entry.target.classList.add("visible");
 
-            revealObserver.unobserve(entry.target);
-
-          }
-
-        });
-
-      },
-      {
-        threshold: 0.12
-      }
-    );
-
-    revealElements.forEach(element => {
-
-      element.classList.add("reveal");
-
-      revealObserver.observe(element);
-
-    });
-
-  } else {
-
-    revealElements.forEach(element => {
-
-      element.classList.add("is-visible");
-
-    });
-
-  }
-
-
-  /* -------------------------------------------------------
-     ACTIVE NAVIGATION
-     ------------------------------------------------------- */
-
-  const sections = document.querySelectorAll("main section[id]");
-  const navigationLinks = document.querySelectorAll(".nav-links a");
-
-  if ("IntersectionObserver" in window) {
-
-    const sectionObserver = new IntersectionObserver(
-      entries => {
-
-        entries.forEach(entry => {
-
-          if (!entry.isIntersecting) {
-            return;
-          }
-
-          const currentSection = entry.target.getAttribute("id");
-
-          navigationLinks.forEach(link => {
-
-            link.classList.remove("active");
-
-            const href = link.getAttribute("href");
-
-            if (href === `#${currentSection}`) {
-
-              link.classList.add("active");
+              observerInstance.unobserve(
+                entry.target
+              );
 
             }
 
           });
 
-        });
-
-      },
-      {
-        rootMargin: "-35% 0px -55% 0px"
-      }
-    );
-
-    sections.forEach(section => {
-
-      sectionObserver.observe(section);
-
-    });
-
-  }
-
-
-  /* -------------------------------------------------------
-     HERO IMAGE ROTATION
-     ------------------------------------------------------- */
-
-  const heroImage = document.querySelector(".hero-image");
-
-  if (heroImage) {
-
-    const images = [
-      "images/20250924_133130~2.jpg",
-      "images/20251014_180851.jpg",
-      "images/20260125_193828.jpg",
-      "images/20260125_201909.jpg",
-      "images/20260206_160230.jpg",
-      "images/20260319_170756.jpg",
-      "images/20260319_172505.jpg",
-      "images/20260320_001553.jpg",
-      "images/20260320_002604.jpg",
-      "images/20260405_014526.jpg",
-      "images/IMG-20251227-WA0002.jpg"
-    ];
-
-    let currentImage = 0;
-
-    const changeImage = () => {
-
-      heroImage.classList.add("changing");
-
-      setTimeout(() => {
-
-        currentImage =
-          (currentImage + 1) % images.length;
-
-        heroImage.src = images[currentImage];
-
-        heroImage.onload = () => {
-
-          heroImage.classList.remove("changing");
-
-        };
-
-      }, 350);
-
-    };
-
-    setInterval(changeImage, 4500);
-
-  }
-
-
-  /* -------------------------------------------------------
-     GALLERY LIGHTBOX
-     ------------------------------------------------------- */
-
-  const galleryImages = document.querySelectorAll(
-    ".gallery-image"
-  );
-
-  const lightbox = document.querySelector(
-    ".lightbox"
-  );
-
-  const lightboxImage = document.querySelector(
-    ".lightbox img"
-  );
-
-  const lightboxClose = document.querySelector(
-    ".lightbox-close"
-  );
-
-  if (
-    galleryImages.length &&
-    lightbox &&
-    lightboxImage
-  ) {
-
-    galleryImages.forEach(image => {
-
-      image.addEventListener("click", () => {
-
-        lightboxImage.src = image.src;
-
-        lightboxImage.alt =
-          image.alt || "Oishik Das";
-
-        lightbox.classList.add("open");
-
-        document.body.classList.add(
-          "lightbox-open"
-        );
-
-      });
-
-    });
-
-
-    const closeLightbox = () => {
-
-      lightbox.classList.remove("open");
-
-      document.body.classList.remove(
-        "lightbox-open"
-      );
-
-    };
-
-
-    if (lightboxClose) {
-
-      lightboxClose.addEventListener(
-        "click",
-        closeLightbox
-      );
-
-    }
-
-
-    lightbox.addEventListener(
-      "click",
-      event => {
-
-        if (event.target === lightbox) {
-
-          closeLightbox();
-
+        },
+        {
+          threshold: 0.08
         }
+      );
+
+    revealElements.forEach(element => {
+      observer.observe(element);
+    });
+
+  } else {
+
+    revealElements.forEach(element => {
+      element.classList.add("visible");
+    });
+
+  }
+
+
+  document.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+      if (
+        link.hostname === window.location.hostname &&
+        link.getAttribute("href") &&
+        !link.getAttribute("href").startsWith("#")
+      ) {
+
+        document.body.classList.add("page-leaving");
 
       }
-    );
-
-
-    document.addEventListener(
-      "keydown",
-      event => {
-
-        if (
-          event.key === "Escape" &&
-          lightbox.classList.contains("open")
-        ) {
-
-          closeLightbox();
-
-        }
-
-      }
-    );
-
-  }
-
-
-  /* -------------------------------------------------------
-     SMOOTH ANCHOR NAVIGATION
-     ------------------------------------------------------- */
-
-  document
-    .querySelectorAll('a[href^="#"]')
-    .forEach(anchor => {
-
-      anchor.addEventListener(
-        "click",
-        event => {
-
-          const targetId =
-            anchor.getAttribute("href");
-
-          if (
-            !targetId ||
-            targetId === "#"
-          ) {
-            return;
-          }
-
-          const target =
-            document.querySelector(targetId);
-
-          if (!target) {
-            return;
-          }
-
-          event.preventDefault();
-
-          target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-
-        }
-      );
 
     });
 
-
-  /* -------------------------------------------------------
-     CURRENT YEAR
-     ------------------------------------------------------- */
-
-  const yearElement =
-    document.querySelector("[data-current-year]");
-
-  if (yearElement) {
-
-    yearElement.textContent =
-      new Date().getFullYear();
-
-  }
-
-
-  /* -------------------------------------------------------
-     IMAGE FALLBACK
-     ------------------------------------------------------- */
-
-  document
-    .querySelectorAll("img")
-    .forEach(image => {
-
-      image.addEventListener(
-        "error",
-        () => {
-
-          image.classList.add(
-            "image-error"
-          );
-
-        }
-      );
-
-    });
+  });
 
 });
-```
