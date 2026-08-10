@@ -1,146 +1,154 @@
-/* =========================================================
-   OISHIK DAS — WEBSITE INTERACTIONS
-   ========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
 
+  /* =======================================================
+     MOBILE NAVIGATION
+  ======================================================= */
 
-/* MOBILE NAVIGATION */
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
 
-const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector(".nav-links");
-const navItems = document.querySelectorAll(".nav-links a");
+  if (menuToggle && navLinks) {
 
-if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
 
-  menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
 
-    const isOpen = navLinks.classList.toggle("open");
-
-    menuToggle.setAttribute("aria-expanded", isOpen);
-    document.body.classList.toggle("menu-open", isOpen);
-
-  });
-
-  navItems.forEach((item) => {
-
-    item.addEventListener("click", () => {
-
-      navLinks.classList.remove("open");
-      menuToggle.setAttribute("aria-expanded", "false");
-      document.body.classList.remove("menu-open");
+      menuToggle.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+      );
 
     });
 
-  });
+    navLinks.querySelectorAll("a").forEach(link => {
 
-}
+      link.addEventListener("click", () => {
 
+        navLinks.classList.remove("open");
 
-/* HERO IMAGE ROTATION */
-
-const heroImages = document.querySelectorAll(".hero-image");
-const heroCurrent = document.querySelector(".hero-current");
-
-let currentImage = 0;
-
-function changeHeroImage() {
-
-  heroImages[currentImage].classList.remove("active");
-
-  currentImage = (currentImage + 1) % heroImages.length;
-
-  heroImages[currentImage].classList.add("active");
-
-  if (heroCurrent) {
-    heroCurrent.textContent =
-      String(currentImage + 1).padStart(2, "0");
-  }
-
-}
-
-if (heroImages.length > 1) {
-
-  setInterval(changeHeroImage, 5000);
-
-}
-
-
-/* ACTIVE NAVIGATION */
-
-const sections = document.querySelectorAll("main section[id]");
-const navigationLinks = document.querySelectorAll(".nav-links a");
-
-const observer = new IntersectionObserver(
-  (entries) => {
-
-    entries.forEach((entry) => {
-
-      if (entry.isIntersecting) {
-
-        navigationLinks.forEach((link) => {
-          link.classList.remove("active");
-        });
-
-        const activeLink = document.querySelector(
-          `.nav-links a[href="#${entry.target.id}"]`
+        menuToggle.setAttribute(
+          "aria-expanded",
+          "false"
         );
 
-        if (activeLink) {
-          activeLink.classList.add("active");
-        }
+      });
+
+    });
+
+  }
+
+
+  /* =======================================================
+     HERO PHOTO SLIDESHOW
+     11 PHOTOS
+  ======================================================= */
+
+  const slides = document.querySelectorAll(".hero-slide");
+  const currentCounter = document.getElementById("slide-current");
+
+  let currentSlide = 0;
+
+  if (slides.length > 1) {
+
+    setInterval(() => {
+
+      slides[currentSlide].classList.remove("active");
+
+      currentSlide =
+        (currentSlide + 1) % slides.length;
+
+      slides[currentSlide].classList.add("active");
+
+      if (currentCounter) {
+
+        currentCounter.textContent =
+          String(currentSlide + 1).padStart(2, "0");
 
       }
 
-    });
+    }, 5000);
 
-  },
-  {
-    threshold: 0.35
   }
-);
-
-sections.forEach((section) => {
-  observer.observe(section);
-});
 
 
-/* IMAGE LOAD FADE */
+  /* =======================================================
+     SCROLL REVEAL
+  ======================================================= */
 
-const galleryImages = document.querySelectorAll(".gallery-item img");
+  const revealElements = document.querySelectorAll(
+    ".section, .journey-point, .creative-links a, .gallery-grid img"
+  );
 
-galleryImages.forEach((image) => {
+  const observer = new IntersectionObserver(
+    entries => {
 
-  image.addEventListener("load", () => {
-    image.classList.add("loaded");
-  });
+      entries.forEach(entry => {
 
-});
+        if (entry.isIntersecting) {
 
+          entry.target.classList.add("visible");
 
-/* PREVENT BROKEN HASH SCROLL */
+          observer.unobserve(entry.target);
 
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        }
 
-  link.addEventListener("click", (event) => {
-
-    const targetId = link.getAttribute("href");
-
-    if (!targetId || targetId === "#") {
-      return;
-    }
-
-    const target = document.querySelector(targetId);
-
-    if (target) {
-
-      event.preventDefault();
-
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
       });
 
+    },
+    {
+      threshold: 0.08
     }
+  );
 
+  revealElements.forEach(element => {
+    element.classList.add("reveal");
+    observer.observe(element);
+  });
+
+
+  /* =======================================================
+     ACTIVE NAVIGATION
+  ======================================================= */
+
+  const sections = document.querySelectorAll(
+    "main section[id]"
+  );
+
+  const navigationLinks =
+    document.querySelectorAll(".nav-links a");
+
+  const sectionObserver = new IntersectionObserver(
+    entries => {
+
+      entries.forEach(entry => {
+
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        navigationLinks.forEach(link => {
+
+          link.classList.remove("active");
+
+          if (
+            link.getAttribute("href") ===
+            `#${entry.target.id}`
+          ) {
+            link.classList.add("active");
+          }
+
+        });
+
+      });
+
+    },
+    {
+      threshold: 0.45
+    }
+  );
+
+  sections.forEach(section => {
+    sectionObserver.observe(section);
   });
 
 });
