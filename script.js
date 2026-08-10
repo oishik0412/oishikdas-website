@@ -1,9 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* --------------------------------
+     MOBILE NAVIGATION
+  -------------------------------- */
+
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
 
   if (menuToggle && navLinks) {
+
     menuToggle.addEventListener("click", () => {
 
       const isOpen = navLinks.classList.toggle("open");
@@ -13,9 +18,40 @@ document.addEventListener("DOMContentLoaded", () => {
         isOpen ? "true" : "false"
       );
 
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
+
     });
+
+
+    navLinks.querySelectorAll("a").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        navLinks.classList.remove("open");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuToggle.setAttribute(
+          "aria-label",
+          "Open navigation"
+        );
+
+      });
+
+    });
+
   }
 
+
+  /* --------------------------------
+     MASTER IMAGE ARCHIVE
+  -------------------------------- */
 
   const images = [
     "20250924_133130~2.jpg",
@@ -32,43 +68,103 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
 
-  const heroImage = document.getElementById("heroImage");
-  const heroCounter = document.getElementById("heroCounter");
+  /* --------------------------------
+     HOME BACKGROUND SLIDESHOW
+  -------------------------------- */
+
+  const heroBackground =
+    document.getElementById("heroBackground");
+
+  const heroCounter =
+    document.getElementById("heroCounter");
 
 
-  if (heroImage) {
+  if (heroBackground) {
 
     let currentImage = 0;
+    let slideshowTimer = null;
+
+    const preloadImages = () => {
+
+      images.forEach(image => {
+
+        const img = new Image();
+
+        img.src = "images/" + image;
+
+      });
+
+    };
+
 
     const changeHeroImage = () => {
 
       currentImage =
         (currentImage + 1) % images.length;
 
-      heroImage.classList.add("image-changing");
+      heroBackground.classList.add("changing");
 
-      setTimeout(() => {
+      window.setTimeout(() => {
 
-        heroImage.src =
-          "images/" + images[currentImage];
+        heroBackground.style.backgroundImage =
+          `url("images/${images[currentImage]}")`;
 
         if (heroCounter) {
+
           heroCounter.textContent =
             String(currentImage + 1).padStart(2, "0") +
             " / " +
             String(images.length).padStart(2, "0");
+
         }
 
-        heroImage.onload = () => {
-          heroImage.classList.remove("image-changing");
-        };
+        window.requestAnimationFrame(() => {
 
-      }, 350);
+          heroBackground.classList.remove("changing");
+
+        });
+
+      }, 450);
+
     };
 
-    setInterval(changeHeroImage, 4000);
+
+    preloadImages();
+
+    slideshowTimer =
+      window.setInterval(
+        changeHeroImage,
+        4500
+      );
+
+
+    document.addEventListener(
+      "visibilitychange",
+      () => {
+
+        if (document.hidden) {
+
+          window.clearInterval(slideshowTimer);
+
+        } else {
+
+          slideshowTimer =
+            window.setInterval(
+              changeHeroImage,
+              4500
+            );
+
+        }
+
+      }
+    );
+
   }
 
+
+  /* --------------------------------
+     DYNAMIC GALLERY
+  -------------------------------- */
 
   const galleryGrid =
     document.getElementById("galleryGrid");
@@ -84,6 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
       figure.className =
         "gallery-item page-reveal";
 
+
       const imageElement =
         document.createElement("img");
 
@@ -91,17 +188,20 @@ document.addEventListener("DOMContentLoaded", () => {
         "images/" + image;
 
       imageElement.alt =
-        "Oishik Das photograph " +
-        String(index + 1);
+        `Oishik Das photograph ${index + 1}`;
 
       imageElement.loading =
-        index === 0 ? "eager" : "lazy";
+        index === 0
+          ? "eager"
+          : "lazy";
+
 
       const caption =
         document.createElement("figcaption");
 
       caption.textContent =
         String(index + 1).padStart(2, "0");
+
 
       figure.appendChild(imageElement);
       figure.appendChild(caption);
@@ -112,6 +212,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
+
+  /* --------------------------------
+     SCROLL REVEALS
+  -------------------------------- */
 
   const revealElements =
     document.querySelectorAll(".page-reveal");
@@ -139,39 +243,124 @@ document.addEventListener("DOMContentLoaded", () => {
 
         },
         {
-          threshold: 0.08
+          threshold: 0.08,
+          rootMargin: "0px 0px -40px 0px"
         }
       );
 
-    revealElements.forEach(element => {
-      observer.observe(element);
-    });
+
+    revealElements.forEach(
+      element => observer.observe(element)
+    );
 
   } else {
 
-    revealElements.forEach(element => {
-      element.classList.add("visible");
-    });
+    revealElements.forEach(
+      element => element.classList.add("visible")
+    );
 
   }
 
 
+  /* --------------------------------
+     INTERNAL PAGE TRANSITION
+  -------------------------------- */
+
   document.querySelectorAll("a").forEach(link => {
 
-    link.addEventListener("click", () => {
+    link.addEventListener("click", event => {
+
+      const href =
+        link.getAttribute("href");
+
+      if (!href) {
+        return;
+      }
+
+      const isInternal =
+        link.hostname === window.location.hostname;
+
+      const isAnchor =
+        href.startsWith("#");
+
+      const isDownload =
+        link.hasAttribute("download");
+
+      const opensNewTab =
+        link.target === "_blank";
 
       if (
-        link.hostname === window.location.hostname &&
-        link.getAttribute("href") &&
-        !link.getAttribute("href").startsWith("#")
+        isInternal &&
+        !isAnchor &&
+        !isDownload &&
+        !opensNewTab
       ) {
 
-        document.body.classList.add("page-leaving");
+        event.preventDefault();
+
+        document.body.classList.add(
+          "page-leaving"
+        );
+
+        window.setTimeout(() => {
+
+          window.location.href = href;
+
+        }, 180);
 
       }
 
     });
 
   });
+
+
+  /* --------------------------------
+     ACTIVE NAVIGATION
+  -------------------------------- */
+
+  const currentPage =
+    window.location.pathname
+      .split("/")
+      .pop() || "index.html";
+
+
+  document.querySelectorAll(
+    ".nav-links a"
+  ).forEach(link => {
+
+    const href =
+      link.getAttribute("href");
+
+    if (href === currentPage) {
+
+      link.classList.add("active");
+
+    }
+
+  });
+
+
+  /* --------------------------------
+     REDUCE MOTION
+  -------------------------------- */
+
+  const prefersReducedMotion =
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+
+
+  if (prefersReducedMotion.matches) {
+
+    document
+      .querySelectorAll(".page-reveal")
+      .forEach(element => {
+
+        element.classList.add("visible");
+
+      });
+
+  }
 
 });
