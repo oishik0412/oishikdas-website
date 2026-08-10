@@ -1,60 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
 
-  <title>Oishik Das | Technology, Business, Creativity & Research</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Oishik Das | Business, Technology & Creative</title>
 
   <meta
     name="description"
-    content="Official website of Oishik Das, an Indian business and technology professional, actor and writer exploring technology, business, research, cinema, music and storytelling."
-  />
+    content="Oishik Das is an Indian business and technology professional, actor and writer exploring the intersection of technology, business, research and storytelling."
+  >
 
-  <meta name="author" content="Oishik Das" />
-  <meta name="robots" content="index, follow" />
+  <meta
+    name="keywords"
+    content="Oishik Das, business, technology, actor, writer, research, India"
+  >
 
-  <!-- Canonical URL will be updated to https://oishikdas.in/ after the domain is connected -->
-  <link rel="canonical" href="https://oishikdas.in/" />
+  <meta name="author" content="Oishik Das">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://oishikdas.pages.dev/">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google / Social identity signals -->
+  <link rel="me" href="https://www.linkedin.com/in/oishikdas/">
+  <link rel="me" href="https://www.instagram.com/oishik0412/">
+  <link rel="me" href="https://x.com/oishik0412">
+  <link rel="me" href="https://www.youtube.com/@oishik0412">
+  <link rel="me" href="https://medium.com/@oishikdas">
+  <link rel="me" href="https://www.quora.com/profile/Oishik-Das-4">
+  <link rel="me" href="https://www.facebook.com/oishik0412">
+  <link rel="me" href="https://www.imdb.com/name/nm18410928/">
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Oishik Das | Technology, Business, Creativity & Research" />
-  <meta
-    property="og:description"
-    content="Technology, business, research, cinema, music and storytelling."
-  />
-  <meta property="og:url" content="https://oishikdas.in/" />
-  <meta property="og:site_name" content="Oishik Das" />
+  <meta property="og:title" content="Oishik Das">
+  <meta property="og:description" content="Business, technology, research and creative storytelling.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://oishikdas.pages.dev/">
 
-  <!-- X / Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Oishik Das" />
-  <meta
-    name="twitter:description"
-    content="Technology & Business Professional · Actor · Writer"
-  />
-  <meta name="twitter:creator" content="@oishik0412" />
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Oishik Das">
+  <meta name="twitter:description" content="Business, technology, research and creative storytelling.">
 
-  <!-- Favicon placeholder -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3EO%3C/text%3E%3C/svg%3E" />
-
-  <!-- Main stylesheet -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!--
-    Schema.org structured data.
-    This connects the website to the same public identity represented
-    across Wikidata and other established profiles.
-  -->
+  <!-- Schema.org Person -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "@id": "https://oishikdas.in/#person",
+    "@id": "https://oishikdas.pages.dev/#person",
     "name": "Oishik Das",
-    "url": "https://oishikdas.in/",
-    "description": "Indian business and technology professional, actor, and writer.",
+    "url": "https://oishikdas.pages.dev/",
+    "description": "Indian business and technology professional, actor and writer.",
     "birthDate": "1998-12-04",
     "birthPlace": {
       "@type": "Place",
@@ -68,21 +68,29 @@
       "https://www.wikidata.org/wiki/Q140778180",
       "https://www.linkedin.com/in/oishikdas/",
       "https://www.instagram.com/oishik0412/",
-      "https://www.imdb.com/name/nm18410928/",
-      "https://medium.com/@oishikdas",
-      "https://www.quora.com/profile/Oishik-Das-4",
       "https://x.com/oishik0412",
       "https://www.youtube.com/@oishik0412",
+      "https://medium.com/@oishikdas",
+      "https://www.quora.com/profile/Oishik-Das-4",
       "https://www.facebook.com/oishik0412",
+      "https://www.imdb.com/name/nm18410928/",
       "https://www.researchgate.net/profile/Oishik-Das",
       "https://www.stage32.com/profile/1381120/about",
       "https://www.themoviedb.org/person/6378803"
     ],
-    "jobTitle": "Business and Technology Professional",
-    "knowsLanguage": [
-      "English",
-      "Hindi",
-      "Bangla"
+    "jobTitle": [
+      "Business Professional",
+      "Technology Professional"
+    ],
+    "knowsAbout": [
+      "Business",
+      "Technology",
+      "Project Management",
+      "Product Management",
+      "Research",
+      "Storytelling",
+      "Acting",
+      "Writing"
     ]
   }
   </script>
@@ -90,529 +98,704 @@
 
 <body>
 
-  <!-- =========================
-       NAVIGATION
-       ========================= -->
+<header class="site-header">
 
-  <header class="site-header">
-    <nav class="navigation">
+  <nav class="navigation">
 
-      <a href="index.html" class="brand">
-        OISHIK DAS
+    <a href="#home" class="brand">
+      OISHIK DAS
+    </a>
+
+    <button
+      class="menu-toggle"
+      aria-label="Open navigation"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-links">
+
+      <a href="#about">About</a>
+      <a href="#journey">Journey</a>
+      <a href="#research">Research</a>
+      <a href="#creative">Creative</a>
+      <a href="#press">Press</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+
+    </div>
+
+  </nav>
+
+</header>
+
+
+<main>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    <p class="eyebrow">
+      Business · Technology · Research · Storytelling
+    </p>
+
+    <h1>
+      Oishik<br>
+      <span>Das.</span>
+    </h1>
+
+    <p class="hero-title">
+      Building, researching and creating across disciplines.
+    </p>
+
+    <p class="hero-introduction">
+      An Indian business and technology professional exploring
+      the intersection of technology, business, research,
+      creativity and human stories.
+    </p>
+
+    <div class="hero-actions">
+
+      <a href="#about" class="button button-primary">
+        Explore
       </a>
 
-      <button
-        class="menu-toggle"
-        aria-label="Open navigation"
-        aria-expanded="false"
+      <a href="#contact" class="button button-secondary">
+        Connect
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="hero-side">
+
+    <div class="hero-note">
+
+      <span class="hero-note-line"></span>
+
+      <span>
+        Kolkata → Bhubaneswar → Hyderabad → Bengaluru
+        <br>
+        India
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="section intro" id="about">
+
+  <div class="section-label">
+
+    <span>01 / About</span>
+
+    <span>Who I am</span>
+
+  </div>
+
+
+  <div class="intro-content">
+
+    <div>
+
+      <p class="large-text">
+        I work at the intersection of business,
+        technology and ideas.
+      </p>
+
+    </div>
+
+
+    <div class="intro-text">
+
+      <p>
+        My professional journey has taken me through
+        technology, SaaS, consulting and business
+        transformation.
+      </p>
+
+      <p>
+        But that is only one part of the story.
+      </p>
+
+      <p>
+        I am equally interested in research, storytelling,
+        acting, writing, music, travel and the people
+        behind the systems we build.
+      </p>
+
+      <a href="#journey" class="text-link">
+        Discover the journey →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     DIRECTIONS
+===================================================== -->
+
+<section class="section" id="directions">
+
+  <div class="section-label">
+
+    <span>02 / Directions</span>
+
+    <span>What I explore</span>
+
+  </div>
+
+
+  <div class="direction-grid">
+
+    <article class="direction-card">
+
+      <span class="direction-number">01</span>
+
+      <h3>Business</h3>
+
+      <p>
+        Strategy, execution, transformation and
+        the systems that make organisations work.
+      </p>
+
+      <span class="card-arrow">↗</span>
+
+    </article>
+
+
+    <article class="direction-card">
+
+      <span class="direction-number">02</span>
+
+      <h3>Technology</h3>
+
+      <p>
+        Products, platforms, adoption and the
+        technologies shaping how people work.
+      </p>
+
+      <span class="card-arrow">↗</span>
+
+    </article>
+
+
+    <article class="direction-card">
+
+      <span class="direction-number">03</span>
+
+      <h3>Research</h3>
+
+      <p>
+        Turning questions into frameworks,
+        evidence and ideas that can be tested.
+      </p>
+
+      <span class="card-arrow">↗</span>
+
+    </article>
+
+
+    <article class="direction-card">
+
+      <span class="direction-number">04</span>
+
+      <h3>Creative</h3>
+
+      <p>
+        Acting, writing, music and storytelling
+        inspired by people and the world around us.
+      </p>
+
+      <span class="card-arrow">↗</span>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     JOURNEY
+===================================================== -->
+
+<section class="section journey-preview" id="journey">
+
+  <div class="section-label">
+
+    <span>03 / Journey</span>
+
+    <span>Places · Experiences · Evolution</span>
+
+  </div>
+
+
+  <div class="journey-heading">
+
+    <h2>
+      A journey<br>
+      still unfolding.
+    </h2>
+
+    <a href="#contact" class="text-link">
+      Connect with me →
+    </a>
+
+  </div>
+
+
+  <div class="journey-line">
+
+    <div class="journey-point">
+
+      <span>Kolkata</span>
+
+      <small>
+        Early years
+      </small>
+
+    </div>
+
+
+    <div class="journey-point">
+
+      <span>Bhubaneswar</span>
+
+      <small>
+        Engineering
+      </small>
+
+    </div>
+
+
+    <div class="journey-point">
+
+      <span>Hyderabad</span>
+
+      <small>
+        Technology · Research
+      </small>
+
+    </div>
+
+
+    <div class="journey-point">
+
+      <span>Bengaluru</span>
+
+      <small>
+        Business · Technology
+      </small>
+
+    </div>
+
+
+    <div class="journey-point">
+
+      <span>Next</span>
+
+      <small>
+        Still being written
+      </small>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     RESEARCH
+===================================================== -->
+
+<section class="section" id="research">
+
+  <div class="section-label">
+
+    <span>04 / Research</span>
+
+    <span>Ideas · Frameworks · Questions</span>
+
+  </div>
+
+
+  <div class="feature-layout">
+
+    <div>
+
+      <p class="feature-kicker">
+        Featured research
+      </p>
+
+      <h2>
+        Time to<br>
+        Adoption.
+      </h2>
+
+    </div>
+
+
+    <div class="feature-description">
+
+      <p class="large-text">
+        A practitioner framework for understanding
+        and reducing the time between product
+        introduction and sustained user adoption.
+      </p>
+
+      <p>
+        My research explores how products move from
+        being introduced to becoming genuinely adopted,
+        and how organisations can systematically reduce
+        that journey.
+      </p>
+
+      <a href="#contact" class="text-link">
+        Research & publications →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CREATIVE
+===================================================== -->
+
+<section class="section creative-preview" id="creative">
+
+  <div class="section-label">
+
+    <span>05 / Creative</span>
+
+    <span>Stories · Sound · Screen</span>
+
+  </div>
+
+
+  <div class="creative-heading">
+
+    <h2>
+      Beyond<br>
+      the professional.
+    </h2>
+
+    <p>
+      Acting<br>
+      Writing<br>
+      Music<br>
+      Storytelling
+    </p>
+
+  </div>
+
+
+  <a
+    href="https://www.imdb.com/name/nm18410928/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="creative-link"
+  >
+
+    <span>
+      Explore my creative work
+    </span>
+
+    <span>↗</span>
+
+  </a>
+
+</section>
+
+
+<!-- =====================================================
+     PRESS
+===================================================== -->
+
+<section class="section" id="press">
+
+  <div class="section-label">
+
+    <span>06 / Press</span>
+
+    <span>Media · Features · Publications</span>
+
+  </div>
+
+
+  <div class="press-preview">
+
+    <div>
+
+      <p class="eyebrow">
+        In the media
+      </p>
+
+    </div>
+
+
+    <div class="press-content">
+
+      <h2>
+        Stories worth<br>
+        remembering.
+      </h2>
+
+      <p>
+        This space will feature interviews,
+        profiles, articles, research and other
+        published work.
+      </p>
+
+      <a href="#contact" class="text-link">
+        Press enquiries →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     GALLERY
+===================================================== -->
+
+<section class="section" id="gallery">
+
+  <div class="section-label">
+
+    <span>07 / Gallery</span>
+
+    <span>Visual archive</span>
+
+  </div>
+
+
+  <div class="intro-content">
+
+    <div>
+
+      <h2>
+        Moments<br>
+        in motion.
+      </h2>
+
+    </div>
+
+
+    <div class="intro-text">
+
+      <p class="large-text">
+        Travel, people, roads, places,
+        projects and everything in between.
+      </p>
+
+      <p>
+        A visual archive will live here as the
+        collection grows.
+      </p>
+
+      <a
+        href="https://www.instagram.com/oishik0412/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-link"
       >
-        <span></span>
-        <span></span>
-      </button>
-
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="journey.html">Journey</a>
-        <a href="work.html">Work</a>
-        <a href="research.html">Research</a>
-        <a href="creative.html">Creative</a>
-        <a href="press.html">Press</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
-      </div>
-
-    </nav>
-  </header>
-
-
-  <main>
-
-    <!-- =========================
-         HERO
-         ========================= -->
-
-    <section class="hero">
-
-      <div class="hero-content">
-
-        <p class="eyebrow">
-          TECHNOLOGY · BUSINESS · RESEARCH · STORYTELLING
-        </p>
-
-        <h1>
-          Oishik<br />
-          Das<span>.</span>
-        </h1>
-
-        <p class="hero-title">
-          Technology &amp; Business Professional · Actor · Writer
-        </p>
-
-        <p class="hero-introduction">
-          Exploring the intersection of technology, business, research,
-          creativity and the stories that shape how we understand people.
-        </p>
-
-        <div class="hero-actions">
-          <a href="about.html" class="button button-primary">
-            Explore my story
-          </a>
-
-          <a href="contact.html" class="button button-secondary">
-            Get in touch
-          </a>
-        </div>
-
-      </div>
-
-      <div class="hero-side">
-
-        <div class="hero-note">
-          <span class="hero-note-line"></span>
-          <p>
-            A journey across<br />
-            technology, ideas<br />
-            and creativity.
-          </p>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         INTRODUCTION
-         ========================= -->
-
-    <section class="intro section">
-
-      <div class="section-label">
-        <span>01</span>
-        <span>ABOUT</span>
-      </div>
-
-      <div class="intro-content">
-
-        <h2>
-          One career.<br />
-          Many directions.
-        </h2>
-
-        <div class="intro-text">
-
-          <p class="large-text">
-            I work at the intersection of technology and business,
-            while continuously exploring research, storytelling and
-            the creative arts.
-          </p>
-
-          <p>
-            My journey has taken me from Kolkata to Bhubaneswar,
-            Hyderabad, Visakhapatnam and Bengaluru, shaping a perspective
-            that is as curious about people and ideas as it is about
-            technology and execution.
-          </p>
-
-          <a href="about.html" class="text-link">
-            More about me →
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         FOUR DIRECTIONS
-         ========================= -->
-
-    <section class="directions section">
-
-      <div class="section-label">
-        <span>02</span>
-        <span>EXPLORATIONS</span>
-      </div>
-
-      <div class="direction-grid">
-
-        <a href="work.html" class="direction-card">
-          <span class="direction-number">01</span>
-          <h3>Build</h3>
-          <p>
-            Technology, business, products and the systems
-            that turn ideas into outcomes.
-          </p>
-          <span class="card-arrow">↗</span>
-        </a>
-
-        <a href="research.html" class="direction-card">
-          <span class="direction-number">02</span>
-          <h3>Think</h3>
-          <p>
-            Research, frameworks and questions about how
-            people, products and organisations evolve.
-          </p>
-          <span class="card-arrow">↗</span>
-        </a>
-
-        <a href="creative.html" class="direction-card">
-          <span class="direction-number">03</span>
-          <h3>Create</h3>
-          <p>
-            Acting, writing, music and an ongoing fascination
-            with cinema and storytelling.
-          </p>
-          <span class="card-arrow">↗</span>
-        </a>
-
-        <a href="journey.html" class="direction-card">
-          <span class="direction-number">04</span>
-          <h3>Explore</h3>
-          <p>
-            Travel, people, places and experiences that
-            continually reshape perspective.
-          </p>
-          <span class="card-arrow">↗</span>
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         JOURNEY
-         ========================= -->
-
-    <section class="journey-preview section">
-
-      <div class="section-label">
-        <span>03</span>
-        <span>JOURNEY</span>
-      </div>
-
-      <div class="journey-heading">
-
-        <h2>
-          A journey<br />
-          still unfolding.
-        </h2>
-
-        <a href="journey.html" class="text-link">
-          Explore the journey →
-        </a>
-
-      </div>
-
-      <div class="journey-line">
-
-        <div class="journey-point">
-          <span>KOLKATA</span>
-          <small>Origins</small>
-        </div>
-
-        <div class="journey-point">
-          <span>BHUBANESWAR</span>
-          <small>Engineering</small>
-        </div>
-
-        <div class="journey-point">
-          <span>HYDERABAD</span>
-          <small>Technology &amp; Business</small>
-        </div>
-
-        <div class="journey-point">
-          <span>VISAKHAPATNAM</span>
-          <small>Management</small>
-        </div>
-
-        <div class="journey-point">
-          <span>BENGALURU</span>
-          <small>Professional journey</small>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         RESEARCH
-         ========================= -->
-
-    <section class="feature section">
-
-      <div class="section-label">
-        <span>04</span>
-        <span>RESEARCH</span>
-      </div>
-
-      <div class="feature-layout">
-
-        <div>
-          <p class="feature-kicker">
-            CURRENT RESEARCH
-          </p>
-
-          <h2>
-            Time<br />
-            to Adoption.
-          </h2>
-        </div>
-
-        <div class="feature-description">
-
-          <p class="large-text">
-            A practitioner framework for understanding and reducing
-            the time between product introduction and sustained
-            user adoption.
-          </p>
-
-          <p>
-            An exploration of adoption as an execution problem,
-            connecting product introduction, user behaviour,
-            organisational readiness and measurable outcomes.
-          </p>
-
-          <a href="research.html" class="button button-secondary">
-            Explore research
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         CREATIVE
-         ========================= -->
-
-    <section class="creative-preview section">
-
-      <div class="section-label">
-        <span>05</span>
-        <span>CREATIVE</span>
-      </div>
-
-      <div class="creative-heading">
-
-        <h2>
-          Beyond the<br />
-          professional world.
-        </h2>
-
-        <p>
-          Acting. Writing. Music.<br />
-          Storytelling.
-        </p>
-
-      </div>
-
-      <a href="creative.html" class="creative-link">
-        <span>Enter the creative world</span>
-        <span>↗</span>
+        View Instagram →
       </a>
 
-    </section>
+    </div>
+
+  </div>
+
+</section>
 
 
-    <!-- =========================
-         PRESS
-         ========================= -->
+<!-- =====================================================
+     SOCIAL
+===================================================== -->
 
-    <section class="press-preview section">
+<section class="section social">
 
-      <div class="section-label">
-        <span>06</span>
-        <span>PRESS</span>
-      </div>
+  <div class="social-heading">
 
-      <div class="press-content">
+    <h2>
+      Find me<br>
+      elsewhere.
+    </h2>
 
-        <p class="feature-kicker">
-          SELECTED FEATURE
-        </p>
+    <p>
+      Follow the work, ideas and experiments
+      across different platforms.
+    </p>
 
-        <h2>
-          Stories about the journey.
-        </h2>
-
-        <p>
-          Independent perspectives, interviews and features
-          documenting the ideas, experiences and work behind
-          the journey.
-        </p>
-
-        <a href="press.html" class="text-link">
-          View press &amp; features →
-        </a>
-
-      </div>
-
-    </section>
+  </div>
 
 
-    <!-- =========================
-         SOCIAL IDENTITY
-         ========================= -->
+  <div class="social-grid">
 
-    <section class="social section">
+    <a href="https://www.linkedin.com/in/oishikdas/" target="_blank" rel="noopener noreferrer">
+      LinkedIn ↗
+    </a>
 
-      <div class="section-label">
-        <span>07</span>
-        <span>ELSEWHERE</span>
-      </div>
+    <a href="https://www.instagram.com/oishik0412/" target="_blank" rel="noopener noreferrer">
+      Instagram ↗
+    </a>
 
-      <div class="social-heading">
+    <a href="https://x.com/oishik0412" target="_blank" rel="noopener noreferrer">
+      X / Twitter ↗
+    </a>
 
-        <h2>
-          Find me<br />
-          elsewhere.
-        </h2>
+    <a href="https://www.youtube.com/@oishik0412" target="_blank" rel="noopener noreferrer">
+      YouTube ↗
+    </a>
 
-        <p>
-          The work continues across professional,
-          creative, research and social platforms.
-        </p>
+    <a href="https://medium.com/@oishikdas" target="_blank" rel="noopener noreferrer">
+      Medium ↗
+    </a>
 
-      </div>
+    <a href="https://www.quora.com/profile/Oishik-Das-4" target="_blank" rel="noopener noreferrer">
+      Quora ↗
+    </a>
 
-      <div class="social-grid">
+    <a href="https://www.facebook.com/oishik0412" target="_blank" rel="noopener noreferrer">
+      Facebook ↗
+    </a>
 
-        <a href="https://www.linkedin.com/in/oishikdas/" target="_blank" rel="noopener noreferrer">
-          LinkedIn
-        </a>
+    <a href="https://www.imdb.com/name/nm18410928/" target="_blank" rel="noopener noreferrer">
+      IMDb ↗
+    </a>
 
-        <a href="https://www.instagram.com/oishik0412/" target="_blank" rel="noopener noreferrer">
-          Instagram
-        </a>
+    <a href="https://www.researchgate.net/profile/Oishik-Das" target="_blank" rel="noopener noreferrer">
+      ResearchGate ↗
+    </a>
 
-        <a href="https://www.imdb.com/name/nm18410928/" target="_blank" rel="noopener noreferrer">
-          IMDb
-        </a>
+    <a href="https://www.stage32.com/profile/1381120/about" target="_blank" rel="noopener noreferrer">
+      Stage 32 ↗
+    </a>
 
-        <a href="https://x.com/oishik0412" target="_blank" rel="noopener noreferrer">
-          X
-        </a>
+    <a href="https://www.themoviedb.org/person/6378803" target="_blank" rel="noopener noreferrer">
+      TMDB ↗
+    </a>
 
-        <a href="https://www.youtube.com/@oishik0412" target="_blank" rel="noopener noreferrer">
-          YouTube
-        </a>
+    <a href="https://www.wikidata.org/wiki/Q140778180" target="_blank" rel="noopener noreferrer">
+      Wikidata ↗
+    </a>
 
-        <a href="https://medium.com/@oishikdas" target="_blank" rel="noopener noreferrer">
-          Medium
-        </a>
+  </div>
 
-        <a href="https://www.quora.com/profile/Oishik-Das-4" target="_blank" rel="noopener noreferrer">
-          Quora
-        </a>
-
-        <a href="https://www.researchgate.net/profile/Oishik-Das" target="_blank" rel="noopener noreferrer">
-          ResearchGate
-        </a>
-
-        <a href="https://www.stage32.com/profile/1381120/about" target="_blank" rel="noopener noreferrer">
-          Stage 32
-        </a>
-
-        <a href="https://www.themoviedb.org/person/6378803" target="_blank" rel="noopener noreferrer">
-          TMDB
-        </a>
-
-        <a href="https://www.facebook.com/oishik0412" target="_blank" rel="noopener noreferrer">
-          Facebook
-        </a>
-
-        <a href="https://www.wikidata.org/wiki/Q140778180" target="_blank" rel="noopener noreferrer">
-          Wikidata
-        </a>
-
-      </div>
-
-    </section>
+</section>
 
 
-    <!-- =========================
-         CONTACT CTA
-         ========================= -->
+<!-- =====================================================
+     CONTACT
+===================================================== -->
 
-    <section class="contact-cta section">
+<section class="section contact-cta" id="contact">
 
-      <div class="contact-cta-content">
+  <div class="contact-cta-content">
 
-        <p class="eyebrow">
-          LET'S CONNECT
-        </p>
+    <p class="eyebrow">
+      Contact
+    </p>
 
-        <h2>
-          Have an idea,<br />
-          story or opportunity?
-        </h2>
+    <h2>
+      Let's create<br>
+      something meaningful.
+    </h2>
 
-        <a href="contact.html" class="button button-primary">
-          Start a conversation →
-        </a>
+    <a
+      href="mailto:hello@oishikdas.in"
+      class="button button-primary"
+    >
+      Get in touch
+    </a>
 
-      </div>
+  </div>
 
-    </section>
+</section>
 
-  </main>
+</main>
 
 
-  <!-- =========================
-       FOOTER
-       ========================= -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
-  <footer class="site-footer">
+<footer class="site-footer">
 
-    <div class="footer-top">
+  <div class="footer-top">
 
-      <div class="footer-brand">
-        <h3>Oishik Das</h3>
-        <p>
-          Technology &amp; Business Professional · Actor · Writer
-        </p>
-      </div>
+    <div class="footer-brand">
 
-      <div class="footer-links">
+      <h3>Oishik Das.</h3>
 
-        <a href="about.html">About</a>
-        <a href="journey.html">Journey</a>
-        <a href="work.html">Work</a>
-        <a href="research.html">Research</a>
-        <a href="creative.html">Creative</a>
-        <a href="press.html">Press</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
-
-      </div>
+      <p>
+        Business · Technology · Research · Creative
+      </p>
 
     </div>
 
-    <div class="footer-bottom">
 
-      <span>
-        © 2026 Oishik Das
-      </span>
+    <div class="footer-links">
 
-      <span>
-        Built with curiosity.
-      </span>
+      <a href="#about">About</a>
+      <a href="#journey">Journey</a>
+      <a href="#research">Research</a>
+      <a href="#creative">Creative</a>
+      <a href="#press">Press</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.wikidata.org/wiki/Q140778180" target="_blank" rel="noopener noreferrer">Wikidata</a>
 
     </div>
 
-  </footer>
+  </div>
 
 
-  <!-- Main JavaScript -->
-  <script src="script.js"></script>
+  <div class="footer-bottom">
+
+    <span>
+      © 2026 Oishik Das
+    </span>
+
+    <span>
+      Built on the open web.
+    </span>
+
+  </div>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
