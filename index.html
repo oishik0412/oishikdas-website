@@ -51,6 +51,11 @@
   >
 
   <meta
+    property="og:site_name"
+    content="Oishik Das"
+  >
+
+  <meta
     property="og:image"
     content="https://official.oishikdas.workers.dev/images/20250924_133130~2.jpg"
   >
@@ -61,7 +66,11 @@
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
@@ -70,6 +79,30 @@
 
   <link rel="stylesheet" href="style.css">
 
+
+  <!--
+    WEBSITE ENTITY
+    Establishes Oishik Das as the preferred site name.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://official.oishikdas.workers.dev/#website",
+    "name": "Oishik Das",
+    "url": "https://official.oishikdas.workers.dev/",
+    "publisher": {
+      "@type": "Person",
+      "@id": "https://official.oishikdas.workers.dev/#oishik-das"
+    }
+  }
+  </script>
+
+
+  <!--
+    PERSON ENTITY
+    Connects this website back to the primary Oishik Das entity.
+  -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -123,6 +156,7 @@
     ]
   }
   </script>
+
 </head>
 
 <body class="home-page">
@@ -159,6 +193,7 @@
   </nav>
 </header>
 
+
 <main>
 
   <section class="home-hero">
@@ -185,7 +220,7 @@
         </h1>
 
         <p class="hero-statement">
-          Building, researching and creating at the<br> 
+          Building, researching and creating at the<br>
           intersection of business, technology and human potential.
         </p>
 
