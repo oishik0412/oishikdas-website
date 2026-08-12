@@ -12,11 +12,11 @@
 
   <meta
     name="description"
-    content="Press, publications, interviews and media appearances featuring Oishik Das across business, technology, executive education, research and creative work."
+    content="Press, publications, institutional features and public appearances featuring Oishik Das across executive education, business, technology, research and creative work."
   >
 
   <meta name="author" content="Oishik Das">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large">
 
   <link
     rel="canonical"
@@ -35,12 +35,17 @@
 
   <meta
     property="og:description"
-    content="Publications, editorial features, interviews and media appearances featuring Oishik Das."
+    content="Publications, institutional features, editorial coverage and public appearances featuring Oishik Das."
   >
 
   <meta
     property="og:url"
     content="https://official.oishikdas.workers.dev/press.html"
+  >
+
+  <meta
+    property="og:site_name"
+    content="Oishik Das"
   >
 
   <link rel="stylesheet" href="style.css">
@@ -61,10 +66,12 @@
     rel="stylesheet"
   >
 
+
   <!--
     PERSON ENTITY
     Connects this page back to the primary Oishik Das entity.
   -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -89,45 +96,163 @@
   }
   </script>
 
+
   <!--
-    PRESS ARTICLE ENTITY
-    Establishes the Poets&Quants article as an article
-    authored by Oishik Das and published independently.
+    PRESS ARCHIVE ENTITY
+    Connects the seven public features/publications
+    to the Oishik Das entity.
   -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": "https://poetsandquantsforexecs.com/admissions/how-iim-visakhapatnams-executive-mba-is-shaping-enterprise-leaders-across-industries/#article",
-    "url": "https://poetsandquantsforexecs.com/admissions/how-iim-visakhapatnams-executive-mba-is-shaping-enterprise-leaders-across-industries/",
-    "headline": "How IIM Visakhapatnam’s Executive MBA Is Shaping Enterprise Leaders Across Industries",
-    "author": {
-      "@type": "Person",
-      "@id": "https://official.oishikdas.workers.dev/#oishik-das",
-      "name": "Oishik Das"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Poets&Quants for Execs",
-      "url": "https://poetsandquantsforexecs.com/"
-    },
-    "about": {
-      "@type": "Person",
-      "@id": "https://official.oishikdas.workers.dev/#oishik-das",
-      "name": "Oishik Das"
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://poetsandquantsforexecs.com/admissions/how-iim-visakhapatnams-executive-mba-is-shaping-enterprise-leaders-across-industries/"
-    }
+    "@type": "ItemList",
+    "@id": "https://official.oishikdas.workers.dev/press.html#press-archive",
+    "name": "Press and Public Features — Oishik Das",
+    "description": "A curated archive of editorial features, institutional publications and public appearances featuring Oishik Das.",
+    "url": "https://official.oishikdas.workers.dev/press.html",
+    "itemListElement": [
+
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Article",
+          "@id": "https://poetsandquantsforexecs.com/admissions/how-iim-visakhapatnams-executive-mba-is-shaping-enterprise-leaders-across-industries/#article",
+          "url": "https://poetsandquantsforexecs.com/admissions/how-iim-visakhapatnams-executive-mba-is-shaping-enterprise-leaders-across-industries/",
+          "headline": "How IIM Visakhapatnam’s Executive MBA Is Shaping Enterprise Leaders Across Industries",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Poets&Quants for Execs",
+            "url": "https://poetsandquantsforexecs.com/"
+          },
+          "about": {
+            "@type": "Person",
+            "@id": "https://official.oishikdas.workers.dev/#oishik-das",
+            "name": "Oishik Das"
+          }
+        }
+      },
+
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "CreativeWork",
+          "name": "IIM(V)ibes — Vol. 7, Issue 2, Jan–April 2026",
+          "url": "https://www.iimv.ac.in/newsletters/v7i2jan-april2026/mobile/index.html",
+          "publisher": {
+            "@type": "CollegeOrUniversity",
+            "name": "Indian Institute of Management Visakhapatnam"
+          },
+          "about": {
+            "@type": "Person",
+            "@id": "https://official.oishikdas.workers.dev/#oishik-das",
+            "name": "Oishik Das"
+          }
+        }
+      },
+
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "CreativeWork",
+          "name": "IIM(V)ibes — Vol. 6, Issue 3, May–August 2025",
+          "url": "https://www.iimv.ac.in/newsletters/v6i3mayaug2025/index.html",
+          "publisher": {
+            "@type": "CollegeOrUniversity",
+            "name": "Indian Institute of Management Visakhapatnam"
+          },
+          "about": {
+            "@type": "Person",
+            "@id": "https://official.oishikdas.workers.dev/#oishik-das",
+            "name": "Oishik Das"
+          }
+        }
+      },
+
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "CreativeWork",
+          "name": "IIM(V)ibes — Vol. 6, Issue 1, Sep–December 2024",
+          "url": "https://www.iimv.ac.in/newsletters/v6i1sepdec2024/index.html",
+          "publisher": {
+            "@type": "CollegeOrUniversity",
+            "name": "Indian Institute of Management Visakhapatnam"
+          },
+          "about": {
+            "@type": "Person",
+            "@id": "https://official.oishikdas.workers.dev/#oishik-das",
+            "name": "Oishik Das"
+          }
+        }
+      },
+
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "CreativeWork",
+          "name": "IIM Visakhapatnam Learning Resource Centre Newsletter — Volume 3, Issue 2, Apr–Jun 2026",
+          "url": "https://www.iimv.ac.in/libnewsletter/v3i2/index.html",
+          "publisher": {
+            "@type": "CollegeOrUniversity",
+            "name": "Indian Institute of Management Visakhapatnam"
+          },
+          "about": {
+            "@type": "Person",
+            "@id": "https://official.oishikdas.workers.dev/#oishik-das",
+            "name": "Oishik Das"
+          }
+        }
+      },
+
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "CreativeWork",
+          "name": "Kabira-2K18 — KIIT School of Computer Engineering",
+          "url": "https://www.facebook.com/photo.php?fbid=317906085692788&set=a.508865224702259&id=100067363579541",
+          "description": "Institutional social media feature documenting Oishik Das as a vocalist at Kabira-2K18, the official fresher's welcome event for the B.Tech Computer Science and Engineering program.",
+          "about": {
+            "@type": "Person",
+            "@id": "https://official.oishikdas.workers.dev/#oishik-das",
+            "name": "Oishik Das"
+          }
+        }
+      },
+
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": "CreativeWork",
+          "name": "KIIT Student Activity Centre — Vocalist Feature",
+          "url": "https://www.facebook.com/photo.php?fbid=1995574453832334&set=a.1994148937308219&id=100064435311537",
+          "description": "Institutional feature documenting Oishik Das's involvement as a vocalist with the KIIT Student Activity Centre, including Korus and KIIT Animal & Environmental Welfare Society.",
+          "about": {
+            "@type": "Person",
+            "@id": "https://official.oishikdas.workers.dev/#oishik-das",
+            "name": "Oishik Das"
+          }
+        }
+      }
+
+    ]
   }
   </script>
 
 </head>
 
+
 <body>
 
 <header class="site-header">
+
   <nav class="navigation" aria-label="Primary navigation">
 
     <a href="index.html" class="brand">
@@ -145,6 +270,7 @@
     </button>
 
     <div class="nav-links" id="primary-navigation">
+
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="journey.html">Journey</a>
@@ -154,13 +280,16 @@
       <a href="gallery.html">Gallery</a>
       <a href="social.html">Social</a>
       <a href="contact.html">Contact</a>
+
     </div>
 
   </nav>
+
 </header>
 
 
 <main>
+
 
   <!-- HERO -->
 
@@ -176,9 +305,9 @@
     </h2>
 
     <p class="inner-introduction">
-      A growing archive of publications, conversations,
-      features and appearances that extend the work beyond
-      this website.
+      A curated archive of publications, institutional features,
+      editorial coverage and public appearances extending the
+      work beyond this website.
     </p>
 
   </section>
@@ -210,10 +339,11 @@
 
       <p>
         This archive brings together editorial features,
-        publications, interviews, research and other forms
-        of public work that document the ideas, experiences
-        and perspectives shaping my journey across business,
-        technology, leadership and creative expression.
+        institutional publications, research-related work,
+        creative appearances and other forms of public work
+        that document different chapters of my journey across
+        business, technology, executive education, leadership
+        and creative expression.
       </p>
 
     </div>
@@ -221,7 +351,7 @@
   </section>
 
 
-  <!-- FEATURED PRESS -->
+  <!-- FEATURED EDITORIAL -->
 
   <section class="section press-feature page-reveal">
 
@@ -269,24 +399,24 @@
         </h3>
 
         <p class="large-copy">
-          A feature exploring how executive education is evolving
+          A feature examining the evolution of executive education
           alongside the changing demands of enterprise leadership,
           technology and cross-functional business transformation.
         </p>
 
         <p>
-          Published by Poets&Quants for Execs, the feature profiles
-          Oishik Das as part of IIM Visakhapatnam’s Executive MBA
-          cohort and explores his professional journey across
-          consulting, SaaS, CPaaS, CCaaS and fintech.
+          Published by Poets&Quants for Execs, the feature places
+          Oishik Das within IIM Visakhapatnam’s Executive MBA cohort
+          and explores his professional journey across consulting,
+          SaaS, CPaaS, CCaaS and fintech.
         </p>
 
         <p>
-          The feature brings together his experience across
-          HighRadius, Zluri, Kapture CX and Exotel with his
-          perspective on leadership, technology and the role of
-          executive education in preparing professionals for
-          increasingly complex organisations.
+          The feature connects his experience across HighRadius,
+          Zluri, Kapture CX and Exotel with his perspective on
+          leadership, technology and the role of executive education
+          in preparing professionals for increasingly complex
+          organisations.
         </p>
 
         <div class="hero-actions">
@@ -309,7 +439,283 @@
   </section>
 
 
-  <!-- PRESS ARCHIVE -->
+  <!-- IIM VISAKHAPATNAM -->
+
+  <section class="section press-archive page-reveal">
+
+    <div class="section-heading compact">
+
+      <div>
+        <p class="eyebrow">
+          IIM Visakhapatnam
+        </p>
+      </div>
+
+      <div>
+        <h2>
+          Institutional<br>
+          features.
+        </h2>
+      </div>
+
+    </div>
+
+
+    <div class="home-grid">
+
+
+      <!-- IIMV 2026 -->
+
+      <article class="home-card">
+
+        <span>
+          02
+        </span>
+
+        <h3>
+          IIM(V)ibes
+        </h3>
+
+        <p>
+          Featured in the “Impressions” section of IIM Visakhapatnam’s
+          institutional newsletter through visually compelling
+          photography and visual storytelling.
+        </p>
+
+        <strong>
+          Vol. 7 · Issue 2 · Jan–April 2026
+        </strong>
+
+        <br><br>
+
+        <a
+          href="https://www.iimv.ac.in/newsletters/v7i2jan-april2026/mobile/index.html"
+          class="text-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View publication →
+        </a>
+
+      </article>
+
+
+      <!-- IIMV 2025 -->
+
+      <article class="home-card">
+
+        <span>
+          03
+        </span>
+
+        <h3>
+          IIM(V)ibes
+        </h3>
+
+        <p>
+          Contributed photography featured in the “Impressions”
+          section, supporting the visual storytelling and editorial
+          presentation of the institutional publication.
+        </p>
+
+        <strong>
+          Vol. 6 · Issue 3 · May–August 2025
+        </strong>
+
+        <br><br>
+
+        <a
+          href="https://www.iimv.ac.in/newsletters/v6i3mayaug2025/index.html"
+          class="text-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View publication →
+        </a>
+
+      </article>
+
+
+      <!-- IIMV 2024 -->
+
+      <article class="home-card">
+
+        <span>
+          04
+        </span>
+
+        <h3>
+          IIM(V)ibes
+        </h3>
+
+        <p>
+          Photography featured in the “Impressions” section of
+          IIM Visakhapatnam’s institutional newsletter, contributing
+          to its visual narrative and editorial quality.
+        </p>
+
+        <strong>
+          Vol. 6 · Issue 1 · Sep–December 2024
+        </strong>
+
+        <br><br>
+
+        <a
+          href="https://www.iimv.ac.in/newsletters/v6i1sepdec2024/index.html"
+          class="text-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View publication →
+        </a>
+
+      </article>
+
+
+      <!-- IIMV LRC -->
+
+      <article class="home-card">
+
+        <span>
+          05
+        </span>
+
+        <h3>
+          Learning Resource Centre
+        </h3>
+
+        <p>
+          Photography featured in the “Patron Page” section of the
+          IIM Visakhapatnam Learning Resource Centre Newsletter,
+          contributing to publication quality and institutional
+          visibility.
+        </p>
+
+        <strong>
+          Vol. 3 · Issue 2 · Apr–Jun 2026
+        </strong>
+
+        <br><br>
+
+        <a
+          href="https://www.iimv.ac.in/libnewsletter/v3i2/index.html"
+          class="text-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View publication →
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- KIIT -->
+
+  <section class="section press-archive page-reveal">
+
+    <div class="section-heading compact">
+
+      <div>
+        <p class="eyebrow">
+          KIIT · 2018
+        </p>
+      </div>
+
+      <div>
+        <h2>
+          Creative<br>
+          beginnings.
+        </h2>
+      </div>
+
+    </div>
+
+
+    <div class="home-grid">
+
+
+      <!-- KABIRA 2K18 -->
+
+      <article class="home-card">
+
+        <span>
+          06
+        </span>
+
+        <h3>
+          Kabira-2K18
+        </h3>
+
+        <p>
+          Featured vocalist at Kabira-2K18, the official fresher’s
+          welcome event for the B.Tech Computer Science and
+          Engineering programme at KIIT School of Computer Engineering.
+        </p>
+
+        <strong>
+          KIIT · 2018
+        </strong>
+
+        <br><br>
+
+        <a
+          href="https://www.facebook.com/photo.php?fbid=317906085692788&set=a.508865224702259&id=100067363579541"
+          class="text-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View feature →
+        </a>
+
+      </article>
+
+
+      <!-- KIIT SAC -->
+
+      <article class="home-card">
+
+        <span>
+          07
+        </span>
+
+        <h3>
+          KIIT Student Activity Centre
+        </h3>
+
+        <p>
+          Vocalist associated with the KIIT Student Activity Centre,
+          including Korus and the KIIT Animal & Environmental Welfare
+          Society.
+        </p>
+
+        <strong>
+          KIIT · Creative Activities · 2018
+        </strong>
+
+        <br><br>
+
+        <a
+          href="https://www.facebook.com/photo.php?fbid=1995574453832334&set=a.1994148937308219&id=100064435311537"
+          class="text-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View feature →
+        </a>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- ARCHIVE OVERVIEW -->
 
   <section class="section press-archive page-reveal">
 
@@ -344,8 +750,8 @@
         </h3>
 
         <p>
-          Features and editorial profiles exploring
-          professional experience, leadership and ideas.
+          Features and editorial profiles exploring professional
+          experience, executive education, leadership and ideas.
         </p>
 
         <strong>
@@ -362,17 +768,17 @@
         </span>
 
         <h3>
-          Research
+          Institutional
         </h3>
 
         <p>
-          Research publications and academic work examining
-          questions at the intersection of technology,
-          organisations and business.
+          Institutional publications documenting contributions
+          to visual storytelling, photography and publication
+          quality.
         </p>
 
         <strong>
-          Coming next
+          IIM Visakhapatnam
         </strong>
 
       </div>
@@ -385,16 +791,16 @@
         </span>
 
         <h3>
-          Interviews
+          Creative
         </h3>
 
         <p>
-          Conversations and interviews that explore
-          professional experiences, ideas and perspectives.
+          Public records of musical and creative participation
+          during university years.
         </p>
 
         <strong>
-          Archive developing
+          KIIT
         </strong>
 
       </div>
@@ -411,7 +817,7 @@
         </h3>
 
         <p>
-          A broader record of writing, speaking,
+          A broader record of writing, research, speaking,
           collaborations and other work in the public domain.
         </p>
 
@@ -462,6 +868,7 @@
   <div class="footer-top">
 
     <div>
+
       <h3>
         Oishik Das
       </h3>
@@ -469,7 +876,9 @@
       <p>
         Business · Technology · Research · Creativity
       </p>
+
     </div>
+
 
     <div class="footer-links">
 
