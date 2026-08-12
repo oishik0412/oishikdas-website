@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Press | Oishik Das</title>
 
   <meta
     name="description"
-    content="Press, publications, interviews and media appearances featuring Oishik Das."
+    content="Press, publications, interviews and media appearances featuring Oishik Das across business, technology, executive education, research and creative work."
   >
 
   <meta name="author" content="Oishik Das">
@@ -20,16 +23,48 @@
     href="https://official.oishikdas.workers.dev/press.html"
   >
 
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Press | Oishik Das"
+  >
+
+  <meta
+    property="og:description"
+    content="Publications, editorial features, interviews and media appearances featuring Oishik Das."
+  >
+
+  <meta
+    property="og:url"
+    content="https://official.oishikdas.workers.dev/press.html"
+  >
+
   <link rel="stylesheet" href="style.css">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
     rel="stylesheet"
   >
 
+  <!--
+    PERSON ENTITY
+    Connects this page back to the primary Oishik Das entity.
+  -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,6 +88,41 @@
     ]
   }
   </script>
+
+  <!--
+    PRESS ARTICLE ENTITY
+    Establishes the Poets&Quants article as an article
+    authored by Oishik Das and published independently.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://poetsandquantsforexecs.com/admissions/how-iim-visakhapatnams-executive-mba-is-shaping-enterprise-leaders-across-industries/#article",
+    "url": "https://poetsandquantsforexecs.com/admissions/how-iim-visakhapatnams-executive-mba-is-shaping-enterprise-leaders-across-industries/",
+    "headline": "How IIM Visakhapatnam’s Executive MBA Is Shaping Enterprise Leaders Across Industries",
+    "author": {
+      "@type": "Person",
+      "@id": "https://official.oishikdas.workers.dev/#oishik-das",
+      "name": "Oishik Das"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Poets&Quants for Execs",
+      "url": "https://poetsandquantsforexecs.com/"
+    },
+    "about": {
+      "@type": "Person",
+      "@id": "https://official.oishikdas.workers.dev/#oishik-das",
+      "name": "Oishik Das"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://poetsandquantsforexecs.com/admissions/how-iim-visakhapatnams-executive-mba-is-shaping-enterprise-leaders-across-industries/"
+    }
+  }
+  </script>
+
 </head>
 
 <body>
@@ -60,7 +130,9 @@
 <header class="site-header">
   <nav class="navigation" aria-label="Primary navigation">
 
-    <a href="index.html" class="brand">OISHIK DAS</a>
+    <a href="index.html" class="brand">
+      OISHIK DAS
+    </a>
 
     <button
       class="menu-toggle"
@@ -87,11 +159,16 @@
   </nav>
 </header>
 
+
 <main>
+
+  <!-- HERO -->
 
   <section class="inner-hero page-reveal">
 
-    <p class="eyebrow">Press</p>
+    <p class="eyebrow">
+      Press
+    </p>
 
     <h2>
       Ideas that<br>
@@ -100,11 +177,14 @@
 
     <p class="inner-introduction">
       A growing archive of publications, conversations,
-      features and appearances.
+      features and appearances that extend the work beyond
+      this website.
     </p>
 
   </section>
 
+
+  <!-- INTRODUCTION -->
 
   <section class="press-introduction section page-reveal">
 
@@ -124,13 +204,16 @@
     <div>
 
       <p class="large-copy">
-        As the body of work grows, this space will document the ideas,
-        projects and conversations that move beyond the website itself.
+        Ideas become more meaningful when they travel beyond
+        the environments in which they are created.
       </p>
 
       <p>
-        This includes research publications, interviews, editorial
-        features and other forms of public work.
+        This archive brings together editorial features,
+        publications, interviews, research and other forms
+        of public work that document the ideas, experiences
+        and perspectives shaping my journey across business,
+        technology, leadership and creative expression.
       </p>
 
     </div>
@@ -138,25 +221,229 @@
   </section>
 
 
-  <section class="section press-empty page-reveal">
+  <!-- FEATURED PRESS -->
 
-    <div class="press-placeholder">
-      Publications and features will appear here.
+  <section class="section press-feature page-reveal">
+
+    <div class="section-heading compact">
+
+      <div>
+        <p class="eyebrow">
+          Featured
+        </p>
+      </div>
+
+      <div>
+        <p class="eyebrow">
+          01 / Editorial
+        </p>
+      </div>
+
+    </div>
+
+
+    <article class="press-feature-card">
+
+      <div class="press-feature-meta">
+
+        <span>
+          POETS&QUANTS FOR EXECS
+        </span>
+
+        <span>
+          2026
+        </span>
+
+      </div>
+
+
+      <div class="press-feature-content">
+
+        <p class="eyebrow">
+          Executive Education · Leadership · Business
+        </p>
+
+        <h2>
+          How IIM Visakhapatnam’s Executive MBA
+          Is Shaping Enterprise Leaders Across Industries
+        </h2>
+
+        <p class="large-copy">
+          A feature exploring how executive education is evolving
+          alongside the changing demands of enterprise leadership,
+          technology and cross-functional business transformation.
+        </p>
+
+        <p>
+          Published by Poets&Quants for Execs, the feature profiles
+          Oishik Das as part of IIM Visakhapatnam’s Executive MBA
+          cohort and explores his professional journey across
+          consulting, SaaS, CPaaS, CCaaS and fintech.
+        </p>
+
+        <p>
+          The feature brings together his experience across
+          HighRadius, Zluri, Kapture CX and Exotel with his
+          perspective on leadership, technology and the role of
+          executive education in preparing professionals for
+          increasingly complex organisations.
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            href="https://poetsandquantsforexecs.com/admissions/how-iim-visakhapatnams-executive-mba-is-shaping-enterprise-leaders-across-industries/"
+            class="button button-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read the feature →
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </section>
+
+
+  <!-- PRESS ARCHIVE -->
+
+  <section class="section press-archive page-reveal">
+
+    <div class="section-heading compact">
+
+      <div>
+        <p class="eyebrow">
+          Archive
+        </p>
+      </div>
+
+      <div>
+        <h2>
+          A record<br>
+          in progress.
+        </h2>
+      </div>
+
+    </div>
+
+
+    <div class="home-grid">
+
+      <div class="home-card">
+
+        <span>
+          01
+        </span>
+
+        <h3>
+          Editorial
+        </h3>
+
+        <p>
+          Features and editorial profiles exploring
+          professional experience, leadership and ideas.
+        </p>
+
+        <strong>
+          Poets&Quants for Execs
+        </strong>
+
+      </div>
+
+
+      <div class="home-card">
+
+        <span>
+          02
+        </span>
+
+        <h3>
+          Research
+        </h3>
+
+        <p>
+          Research publications and academic work examining
+          questions at the intersection of technology,
+          organisations and business.
+        </p>
+
+        <strong>
+          Coming next
+        </strong>
+
+      </div>
+
+
+      <div class="home-card">
+
+        <span>
+          03
+        </span>
+
+        <h3>
+          Interviews
+        </h3>
+
+        <p>
+          Conversations and interviews that explore
+          professional experiences, ideas and perspectives.
+        </p>
+
+        <strong>
+          Archive developing
+        </strong>
+
+      </div>
+
+
+      <div class="home-card">
+
+        <span>
+          04
+        </span>
+
+        <h3>
+          Public Work
+        </h3>
+
+        <p>
+          A broader record of writing, speaking,
+          collaborations and other work in the public domain.
+        </p>
+
+        <strong>
+          Archive developing
+        </strong>
+
+      </div>
+
     </div>
 
   </section>
 
+
+  <!-- MEDIA CONTACT -->
 
   <section class="press-contact section page-reveal">
 
     <p class="eyebrow">
-      Media & collaboration
+      Media &amp; collaboration
     </p>
 
     <h2>
       Have a story<br>
       worth telling?
     </h2>
+
+    <p>
+      For media enquiries, speaking opportunities,
+      collaborations or conversations around business,
+      technology, research and leadership.
+    </p>
 
     <a
       href="contact.html"
@@ -175,11 +462,17 @@
   <div class="footer-top">
 
     <div>
-      <h3>Oishik Das</h3>
-      <p>Business · Technology · Research · Creativity</p>
+      <h3>
+        Oishik Das
+      </h3>
+
+      <p>
+        Business · Technology · Research · Creativity
+      </p>
     </div>
 
     <div class="footer-links">
+
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="journey.html">Journey</a>
@@ -189,16 +482,26 @@
       <a href="gallery.html">Gallery</a>
       <a href="social.html">Social</a>
       <a href="contact.html">Contact</a>
+
     </div>
 
   </div>
 
+
   <div class="footer-bottom">
-    <span>© 2026 Oishik Das</span>
-    <span>All rights reserved.</span>
+
+    <span>
+      © 2026 Oishik Das
+    </span>
+
+    <span>
+      All rights reserved.
+    </span>
+
   </div>
 
 </footer>
+
 
 <script src="script.js"></script>
 
